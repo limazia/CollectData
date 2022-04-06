@@ -1,2 +1,2 @@
-# collect_data
+# Collect Data
 Projeto de Eng. Software da USF
