@@ -1,0 +1,24 @@
+{
+  "name": "collect-data-server",
+  "version": "1.0.0",
+  "description": "Back-end do Collect Data",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "knex:seed": "knex --knexfile knexfile.js seed:run",
+    "knex:migrate": "knex migrate:latest --knexfile knexfile.js migrate:latest"
+  },
+  "repository": {
+    "url": "https://github.com/limazia/collect_data"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}

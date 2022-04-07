@@ -1,0 +1,19 @@
+	Rotas de autenticação:
+		* /login
+		* /register
+		* /forget
+		* /new-password
+		
+	Rotas de clientes:
+		* /consultar
+			* /ficha
+			* /historico
+		* /criar
+		* /atualizar
+		* /deletar
+		
+	Rotas de profissionais:
+		* /consultar
+		* /criar
+		* /deletar
+		* /atualizar
