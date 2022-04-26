@@ -1,5 +1,6 @@
 const bcrypt = require("bcrypt");
 const moment = require("moment");
+const cryptoRandomString = require("crypto-random-string");
 
 const connection = require("../../database/connection");
 const { ConstantSuccess } = require("../../app/constants");
@@ -7,6 +8,55 @@ const { ConstantSuccess } = require("../../app/constants");
 moment.locale("pt-br");
 
 class UserController {
+  async createUser(request, response, next) {
+    try {
+      const { name, email, password, confirmPassword } = request.body;
+      const user = await connection("users").select("*").where({ email });
+      const salt = bcrypt.genSaltSync(10);
+      const passwordCrypt = bcrypt.hashSync(password, salt);
+      const id = cryptoRandomString({ length: 15 });
+
+      if (!name) {
+        return response.json({ error: "Digite um nome" });
+      }
+
+      if (!email) {
+        return response.json({ error: "Digite um email" });
+      } else {
+        if (user.length > 0) {
+          return response.json({ error: "Email já registrado" });
+        }
+      }
+
+      if (!password) {
+        return response.json({ error: "Digite uma senha" });
+      }
+
+      if (password != confirmPassword) {
+        return response.json({ error: "As senhas não coincidem" });
+      }
+
+      await connection("users").insert({
+        id,
+        name,
+        email,
+        password: passwordCrypt
+      });    
+      
+      return response.json({ message: "Conta criada com sucesso" });
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  async listAllUsers(request, response, next){
+    try {
+      return response.json({ data: null });
+    } catch (error) {
+      next(error);
+    }
+  }
+
   async findUserById(request, response, next) {
     try {
       const { id } = request.params;
