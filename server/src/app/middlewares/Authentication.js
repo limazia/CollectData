@@ -1,6 +1,7 @@
 const jwt = require("jsonwebtoken");
 
 const { AuthConfig } = require("../../config");
+const { ConstantError } = require("../../app/constants");
 
 class Authentication {
   async token(request, response, next) {
@@ -17,7 +18,7 @@ class Authentication {
     const authHeader = request.headers.authorization;
 
     if (!authHeader) {
-      return response.json({ error: "Token não fornecido" });
+      return response.json({ error: ConstantError.NO_TOKEN_PROVIDED });
     }
 
     const [, token] = authHeader.split(" ");
@@ -28,7 +29,7 @@ class Authentication {
 
       return next();
     } catch (err) {
-      return response.json({ error: "Token invalido..." });
+      return response.json({ error: ConstantError.INVALID_TOKEN });
     }
   }
 }
