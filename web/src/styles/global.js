@@ -1,7 +1,5 @@
 import { createGlobalStyle } from "styled-components";
 
-import "react-toastify/dist/ReactToastify.css";
-
 export default createGlobalStyle`
   * {
     margin: 0;
@@ -18,7 +16,7 @@ export default createGlobalStyle`
   }
 
   body {
-    background: #fff;
-    font-family: "Poppins", sans-serif;
+    background: #000E23;
+    color: #FFF;
   }
 `;
