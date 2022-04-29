@@ -1,39 +1,36 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Form } from "@rocketseat/unform";
 import { useNavigate } from "react-router-dom";
 
-import useAuth from "~/hooks/useAuth";
+import { ForgotContext } from "~/contexts/ForgotContext";
 
 import { Head, Spinner } from "~/components";
 
 import { ReactComponent as Logo } from "~/assets/images/logo.svg";
-import LoginBackground from "~/assets/images/bg-login.jpg";
+import ForgotBackground from "~/assets/images/bg-forgot.jpg";
 
-function Login() {
+function ForgotPassword() {
   const navigate = useNavigate();
   const {
     handleSubmit,
     setEmail,
-    setPassword,
     userEmail,
-    userPassword,
     loading,
-  } = useAuth();
+  } = useContext(ForgotContext);
 
-  const goForgot = () => {
-    navigate("/forgot-password");
+  const goLogin = () => {
+    navigate("/");
     setEmail("");
-    setPassword("");
   };
 
   return (
     <>
-      <Head title="Iniciar sessão" />
+      <Head title="Recuperar senha" />
       <div className="container-fluid login-form">
         <div className="row no-gutter">
           <div
             className="col-md-6 d-none d-md-flex bg-image"
-            style={{ backgroundImage: `url(${LoginBackground})` }}
+            style={{ backgroundImage: `url(${ForgotBackground})` }}
           ></div>
           <div className="col-md-6 bg-light">
             <div className="login d-flex align-items-center py-5">
@@ -44,7 +41,7 @@ function Login() {
                       <Logo className="img-fluid mr-2" />
                     </div>
                     <p className="text-muted mt-3 mb-4 text-center">
-                      Inicie uma sessão para continuar.
+                      Digite seu email para recuperar sua senha.
                     </p>
                     <Form onSubmit={handleSubmit}>
                       <div className="form-group mb-3 wicon">
@@ -53,41 +50,28 @@ function Login() {
                           type="email"
                           name="email"
                           className="form-control"
-                          placeholder="Email"
+                          placeholder="Seu email"
                           value={userEmail}
                           onChange={(e) => setEmail(e.target.value)}
-                        />
-                      </div>
-                      <div className="form-group mb-3 wicon">
-                        <i className="fas fa-lock left"></i>
-                        <input
-                          type="password"
-                          name="password"
-                          className="form-control"
-                          placeholder="Senha"
-                          value={userPassword}
-                          onChange={(e) => setPassword(e.target.value)}
                         />
                       </div>
                       <button
                         type="submit"
                         disabled={
-                          !userEmail ||
-                          !userPassword ||
-                          userPassword.length <= 3
+                          !userEmail
                             ? true
                             : false
                         }
-                        className="btn btn-login btn-block"
+                        className="btn btn-send-recovery btn-block"
                       >
                         {loading ? (
                           <Spinner type="grow" />
                         ) : (
-                          "Entrar"
+                          "Recuperar"
                         )}
                       </button>
-                      <div className="link-forgot-password">
-                        <span onClick={goForgot}>Esqueceu a senha?</span>
+                      <div className="link-login">
+                        <span onClick={goLogin}>Voltar para o login</span>
                       </div>
                     </Form>
                   </div>
@@ -101,4 +85,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default ForgotPassword;

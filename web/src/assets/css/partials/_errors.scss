@@ -1,0 +1,21 @@
+.error-400,
+.error-401,
+.error-403,
+.error-404,
+.error-500 {
+  margin-bottom: 120px;
+
+  svg {
+    width: 100%;
+  }
+
+  h1 {
+    font-size: 7.5em;
+    margin: 15px 0px;
+    font-weight: bold;
+  }
+  
+  h2 {
+    font-weight: bold;
+  }
+}
