@@ -14,6 +14,7 @@ import NewCustomer from "~/pages/NewCustomer";
 
 import NotFound from "~/pages/NotFound";
 import ProfissionalCustomers from "~/pages/ProfissionalsCustomers";
+import ProfissionalsRegister from "~/pages/ProfissionalsRegister";
 
 const RouteWrapper = () => (
   <Routes>
@@ -22,7 +23,7 @@ const RouteWrapper = () => (
     <Route path="/dashboard" element={<Dashboard />} />
     {/* biel */}
     <Route path="/profissionalcustormers" element={<ProfissionalCustomers />} />
-    <Route path="/brandsprof" element={<BrandTatto />} />
+    <Route path="/brandsprof" element={<ProfissionalsRegister />} />
     {/* biel */}
     <Route path="/settings" element={<Settings />} />
     <Route path="/brands" element={<BrandTatto />}>
