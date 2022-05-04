@@ -13,12 +13,17 @@ import Customer from "~/pages/Customer";
 import NewCustomer from "~/pages/NewCustomer";
 
 import NotFound from "~/pages/NotFound";
+import ProfissionalCustomers from "~/pages/ProfissionalsCustomers";
 
 const RouteWrapper = () => (
   <Routes>
     <Route path="/" exact element={<Login />} />
     <Route path="/forgot-password" element={<ForgotPassword />} />
     <Route path="/dashboard" element={<Dashboard />} />
+    {/* biel */}
+    <Route path="/profissionalcustormers" element={<ProfissionalCustomers />} />
+    <Route path="/brandsprof" element={<BrandTatto />} />
+    {/* biel */}
     <Route path="/settings" element={<Settings />} />
     <Route path="/brands" element={<BrandTatto />}>
       <Route path=":brandId" element={<BrandTatto />} />

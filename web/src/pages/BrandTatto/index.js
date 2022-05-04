@@ -146,7 +146,9 @@ function BrandTatto() {
                         </select>
                       </div>
                       <div className="col-md-12 mt-2">
-                        <label htmlFor="exampleFormControlFile1">Hepatite?</label>
+                        <label htmlFor="exampleFormControlFile1">
+                          Hepatite?
+                        </label>
                         <select className="form-control">
                           <option>Que tipo?</option>
                           <option>Hepatite A</option>

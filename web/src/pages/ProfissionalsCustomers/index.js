@@ -5,7 +5,7 @@ import { Head, Navbar, Loading } from "~/components";
 
 import { ReactComponent as EmptyBackground } from "~/assets/images/empty.svg";
 
-function Customers() {
+function ProfissionalCustomers() {
   const navigate = useNavigate();
 
   const [isLoading, setIsLoading] = useState(true);
@@ -20,24 +20,24 @@ function Customers() {
     return <Loading />;
   }
 
-  const goBrands = () => navigate("/brands");
+  const goBrandsProf = () => navigate("/brandsprof");
 
-  const users = {
-    name: "Acacio de Lima",
+  const profissionals = {
+    name: "Gabriel de Oliveira Marques da Silva",
     email: "limadeacacio@gmail.com",
     createdAt: "27/04/2022",
   };
 
   return (
     <>
-      <Head title="Clientes" />
+      <Head title="Profissional" />
       <Navbar />
       <div className="container">
         <div className="row">
           <div className="col-md-12 mt-5">
             <div className="card card-tattos">
               <div className="card-body">
-                {users.length > 0 ? (
+                {profissionals.length > 0 ? (
                   <>
                     <table className="table">
                       <thead>
@@ -50,11 +50,11 @@ function Customers() {
                       </thead>
                       <tbody>
                         <>
-                          {users.map((index, user) => (
+                          {profissionals.map((index, user) => (
                             <tr key={index}>
-                              <th>{user.name}</th>
-                              <td>{user.email}</td>
-                              <td>{user.createdAt}</td>
+                              <th>{profissionals.name}</th>
+                              <td>{profissionals.email}</td>
+                              <td>{profissionals.createdAt}</td>
                               <td>
                                 <div className="dropdown">
                                   <i
@@ -95,13 +95,17 @@ function Customers() {
                       <EmptyBackground className="img-fluid" />
                     </div>
                     <span className="empty-tatto-title">
-                      Nenhum cliente foi encontrado
+                      Nenhum profissional foi encontrado
                     </span>
                     <small className="empty-tatto-description mt-2 pb-4">
                       Começe cadastrando agora mesmo
                     </small>
-                    <button className="btn btn-create-tatto" onClick={goBrands}>
-                      <i className="far fa-plus mr-1"></i> Cadastrar cliente
+                    <button
+                      className="btn btn-create-tatto"
+                      onClick={goBrandsProf}
+                    >
+                      <i className="far fa-plus mr-1"></i> Cadastrar
+                      Profissional
                     </button>
                   </div>
                 )}
@@ -114,4 +118,4 @@ function Customers() {
   );
 }
 
-export default Customers;
+export default ProfissionalCustomers;

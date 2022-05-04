@@ -21,6 +21,7 @@ function Dashboard() {
   const goSchedule = () => navigate("/schedule");
   const goCustomers = () => navigate("/customers");
   const goCompanySetting = () => navigate("/setting/company");
+  const goProfissionals = () => navigate("/profissionalcustormers");
 
   return (
     <>
@@ -60,7 +61,7 @@ function Dashboard() {
                 </button>
                 <button
                   className="btn btn-tatto-options btn-block mt-4"
-                  onClick={goCompanySetting}
+                  onClick={goProfissionals}
                 >
                   <div className="d-flex align-items-center">
                     <div className="icon-box">
