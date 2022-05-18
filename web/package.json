@@ -6,12 +6,31 @@
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.1.1",
     "@testing-library/user-event": "^13.5.0",
+<<<<<<< Updated upstream
     "dotenv-webpack": "^7.1.0",
     "react": "^18.0.0",
+=======
+    "axios": "^0.26.1",
+    "date-fns": "^2.28.0",
+    "jquery": "^3.6.0",
+    "node-sass": "^7.0.1",
+    "prop-types": "^15.8.1",
+    "react": "^18.0.0",
+    "react-big-calendar": "^0.40.1",
+>>>>>>> Stashed changes
     "react-dom": "^18.0.0",
+    "react-lottie": "^1.2.3",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
+<<<<<<< Updated upstream
     "styled-components": "^5.3.5",
+=======
+    "react-toastify": "^8.2.0",
+    "retry": "^0.13.1",
+    "socket.io-client": "^4.4.1",
+    "styled-components": "^5.3.5",
+    "universal-cookie": "^4.0.4",
+>>>>>>> Stashed changes
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -41,6 +60,7 @@
   "devDependencies": {
     "customize-cra": "^1.0.0",
     "dotenv": "^16.0.0",
+    "dotenv-webpack": "^7.1.0",
     "eslint-plugin-react": "^7.29.4",
     "react-app-rewired": "^2.2.1"
   }

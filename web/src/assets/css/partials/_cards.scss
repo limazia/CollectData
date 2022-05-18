@@ -1,0 +1,248 @@
+.card {
+  word-wrap: break-word;
+  background: #fff;
+  background-clip: border-box;
+  border: 2px solid rgba(0, 0, 0, 0.125);
+}
+
+.card,
+.card-body {
+  box-shadow: none;
+  border-radius: 6px;
+}
+
+.card-customers,
+.card-professionals {
+  .card-body {
+    .empty-tatto {
+      span,
+      small {
+        display: block;
+      }
+
+      .empty-tatto-image {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        img,
+        svg {
+          max-width: 100%;
+          width: 30%;
+          height: 30%;
+        }
+      }
+
+      .empty-tatto-title {
+        font-weight: bold;
+        font-size: 20px;
+      }
+
+      .empty-tatto-description {
+        font-weight: 500;
+        line-height: 1.2;
+      }
+    }
+  }
+}
+
+.card-customers {
+  .card-header,
+  .card-body,
+  .card-footer {
+    margin: 20px 0 20px 0;
+  }
+
+  .card-header {
+    background: #fff;
+    border-bottom: none;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    span,
+    p {
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+  }
+
+  .card-footer {
+    background: #fff;
+    border-top: none;
+  }
+}
+
+.card-professionals {
+  .card-header,
+  .card-body,
+  .card-footer {
+    margin: 20px 0 20px 0;
+  }
+
+  .card-header {
+    background: #fff;
+    border-bottom: none;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    span,
+    p {
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+  }
+
+  .card-footer {
+    background: #fff;
+    border-top: none;
+  }
+}
+
+.card-options {
+  border: none;
+
+  .card-header {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    border-bottom: none;
+
+    i {
+      font-size: 1.25rem;
+      margin-right: 20px;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    span,
+    p {
+      font-weight: bold;
+
+      padding-bottom: 0;
+      margin-bottom: 0;
+    }
+  }
+
+  .card-footer {
+    background: #fff;
+    border-top: none;
+  }
+}
+
+.card-setting-info {
+  .card-body {
+    .card-title {
+      text-align: left;
+      font-size: 20px;
+      font-weight: 600;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.6;
+      letter-spacing: -0.56px;
+      color: #000;
+      margin-top: 0;
+      margin-bottom: 24px;
+    }
+
+    .input-editable {
+      span {
+        font-weight: bold;
+        color: #939ba2;
+      }
+
+      p {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+  }
+}
+
+.card-step {
+  padding: 1rem;
+
+  .card-body {
+    .step-options {
+      span {
+        color: #8e8d8dcc;
+      }
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .btn-link {
+        font-weight: bold;
+        margin-right: 20px;
+      }
+    }
+  }
+}
+
+.card-gallery-tatto {
+  width: 18rem;
+
+  .card-img-top {
+    border-top-right-radius: 6px;
+    border-top-left-radius: 6px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.125);
+
+    width: 100%;
+    height: 20vw;
+    object-fit: cover;
+  }
+
+  .badge-remove {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 15px;
+
+    background: #e12d3a;
+    border-color: #e12d3a;
+    color: #fff;
+    transition: 0.5s ease;
+
+    &:hover {
+      color: #fff;
+      background: #e4434f;
+      border-color: #e4434f;
+    }
+  }
+
+  .card-shop-image {
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    width: 100%;
+    height: 20vw;
+    object-fit: cover;
+  }
+
+  .card-body {
+    .card-title {
+      font-weight: bold;
+      color: #000;
+    }
+  }
+}

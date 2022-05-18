@@ -1,0 +1,1468 @@
+@charset "UTF-8";
+.navbar {
+  padding: 0px;
+}
+
+.navbar-main {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+.navbar-main .navbar-brand {
+  display: flex;
+  align-items: center;
+  font-size: 23px;
+  font-weight: 700;
+  color: #000;
+}
+.navbar-main .navbar-brand:hover, .navbar-main .navbar-brand:focus, .navbar-main .navbar-brand:active, .navbar-main .navbar-brand:active:focus:not(:disabled):not(.disabled) {
+  color: #000;
+}
+.navbar-main .navbar-brand img,
+.navbar-main .navbar-brand svg {
+  display: inline;
+  max-width: 100%;
+  width: 230px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.navbar-main .navbar-toggler {
+  border: none;
+}
+.navbar-main .navbar-nav .nav-link {
+  color: #000;
+  transition: ease 0.5s;
+}
+.navbar-main .navbar-nav .nav-link:hover, .navbar-main .navbar-nav .nav-link:focus, .navbar-main .navbar-nav .nav-link:active, .navbar-main .navbar-nav .nav-link:active:focus:not(:disabled):not(.disabled) {
+  color: #d6d6d6;
+}
+.navbar-main .navbar-nav .active > .nav-link,
+.navbar-main .navbar-nav .show > .nav-link {
+  color: #d6d6d6;
+}
+.navbar-main .navbar-nav .dropdown .avatar {
+  display: inline;
+  align-items: center;
+  height: 36px;
+  width: 36px;
+  border-radius: 50%;
+}
+.navbar-main .navbar-nav .dropdown .username {
+  margin: 0 0.6em;
+}
+.navbar-main .navbar-nav .dropdown-menu .dropdown-item {
+  text-decoration: none;
+  transition: ease 0.5s;
+}
+.navbar-main .navbar-nav .dropdown-menu .dropdown-item i {
+  text-align: center;
+  margin-right: 6px;
+}
+.navbar-main .navbar-nav .dropdown-menu .dropdown-item:hover {
+  text-decoration: none;
+  background: #fcfcfc;
+}
+.navbar-main .navbar-nav .dropdown-menu .dropdown-item:focus, .navbar-main .navbar-nav .dropdown-menu .dropdown-item:active, .navbar-main .navbar-nav .dropdown-menu .dropdown-item:active:focus:not(:disabled):not(.disabled) {
+  color: #fff;
+  text-decoration: none;
+  background: transparent;
+}
+.navbar-main .navbar-nav .logout {
+  color: #f46a6a !important;
+}
+.navbar-main .dropdown-toggle {
+  display: flex;
+  align-items: center;
+}
+
+.login-form .login,
+.login-form .image,
+.setup-form .login,
+.setup-form .image,
+.forgot-form .login,
+.forgot-form .image {
+  min-height: 100vh;
+}
+.login-form .bg-image,
+.setup-form .bg-image,
+.forgot-form .bg-image {
+  background-size: cover;
+  background-position: center center;
+}
+.login-form hr.style-two,
+.setup-form hr.style-two,
+.forgot-form hr.style-two {
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0));
+}
+.login-form .box-logo,
+.setup-form .box-logo,
+.forgot-form .box-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.login-form .box-logo .logo-title,
+.setup-form .box-logo .logo-title,
+.forgot-form .box-logo .logo-title {
+  font-size: 23px;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 0;
+  line-height: 0;
+}
+.login-form .box-logo .logo-title:hover, .login-form .box-logo .logo-title:focus, .login-form .box-logo .logo-title:active, .login-form .box-logo .logo-title:active:focus:not(:disabled):not(.disabled),
+.setup-form .box-logo .logo-title:hover,
+.setup-form .box-logo .logo-title:focus,
+.setup-form .box-logo .logo-title:active,
+.setup-form .box-logo .logo-title:active:focus:not(:disabled):not(.disabled),
+.forgot-form .box-logo .logo-title:hover,
+.forgot-form .box-logo .logo-title:focus,
+.forgot-form .box-logo .logo-title:active,
+.forgot-form .box-logo .logo-title:active:focus:not(:disabled):not(.disabled) {
+  color: #000;
+}
+.login-form .box-logo img,
+.login-form .box-logo svg,
+.setup-form .box-logo img,
+.setup-form .box-logo svg,
+.forgot-form .box-logo img,
+.forgot-form .box-logo svg {
+  display: inline;
+  max-width: 100%;
+  width: 230px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.login-form .logo-setup,
+.setup-form .logo-setup,
+.forgot-form .logo-setup {
+  display: inline;
+  max-width: 100%;
+  width: 300px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin-bottom: 20px;
+}
+.login-form .link-login,
+.login-form .link-register,
+.login-form .link-forgot-password,
+.setup-form .link-login,
+.setup-form .link-register,
+.setup-form .link-forgot-password,
+.forgot-form .link-login,
+.forgot-form .link-register,
+.forgot-form .link-forgot-password {
+  margin-top: 20px;
+  text-align: center;
+}
+.login-form .link-login a,
+.login-form .link-login button,
+.login-form .link-login span,
+.login-form .link-register a,
+.login-form .link-register button,
+.login-form .link-register span,
+.login-form .link-forgot-password a,
+.login-form .link-forgot-password button,
+.login-form .link-forgot-password span,
+.setup-form .link-login a,
+.setup-form .link-login button,
+.setup-form .link-login span,
+.setup-form .link-register a,
+.setup-form .link-register button,
+.setup-form .link-register span,
+.setup-form .link-forgot-password a,
+.setup-form .link-forgot-password button,
+.setup-form .link-forgot-password span,
+.forgot-form .link-login a,
+.forgot-form .link-login button,
+.forgot-form .link-login span,
+.forgot-form .link-register a,
+.forgot-form .link-register button,
+.forgot-form .link-register span,
+.forgot-form .link-forgot-password a,
+.forgot-form .link-forgot-password button,
+.forgot-form .link-forgot-password span {
+  color: #6c757d;
+  text-decoration: none;
+  transition: 0.5s ease;
+  cursor: pointer;
+}
+.login-form .link-login a:hover, .login-form .link-login a:focus, .login-form .link-login a:active, .login-form .link-login a:active:focus:not(:disabled):not(.disabled),
+.login-form .link-login button:hover,
+.login-form .link-login button:focus,
+.login-form .link-login button:active,
+.login-form .link-login button:active:focus:not(:disabled):not(.disabled),
+.login-form .link-login span:hover,
+.login-form .link-login span:focus,
+.login-form .link-login span:active,
+.login-form .link-login span:active:focus:not(:disabled):not(.disabled),
+.login-form .link-register a:hover,
+.login-form .link-register a:focus,
+.login-form .link-register a:active,
+.login-form .link-register a:active:focus:not(:disabled):not(.disabled),
+.login-form .link-register button:hover,
+.login-form .link-register button:focus,
+.login-form .link-register button:active,
+.login-form .link-register button:active:focus:not(:disabled):not(.disabled),
+.login-form .link-register span:hover,
+.login-form .link-register span:focus,
+.login-form .link-register span:active,
+.login-form .link-register span:active:focus:not(:disabled):not(.disabled),
+.login-form .link-forgot-password a:hover,
+.login-form .link-forgot-password a:focus,
+.login-form .link-forgot-password a:active,
+.login-form .link-forgot-password a:active:focus:not(:disabled):not(.disabled),
+.login-form .link-forgot-password button:hover,
+.login-form .link-forgot-password button:focus,
+.login-form .link-forgot-password button:active,
+.login-form .link-forgot-password button:active:focus:not(:disabled):not(.disabled),
+.login-form .link-forgot-password span:hover,
+.login-form .link-forgot-password span:focus,
+.login-form .link-forgot-password span:active,
+.login-form .link-forgot-password span:active:focus:not(:disabled):not(.disabled),
+.setup-form .link-login a:hover,
+.setup-form .link-login a:focus,
+.setup-form .link-login a:active,
+.setup-form .link-login a:active:focus:not(:disabled):not(.disabled),
+.setup-form .link-login button:hover,
+.setup-form .link-login button:focus,
+.setup-form .link-login button:active,
+.setup-form .link-login button:active:focus:not(:disabled):not(.disabled),
+.setup-form .link-login span:hover,
+.setup-form .link-login span:focus,
+.setup-form .link-login span:active,
+.setup-form .link-login span:active:focus:not(:disabled):not(.disabled),
+.setup-form .link-register a:hover,
+.setup-form .link-register a:focus,
+.setup-form .link-register a:active,
+.setup-form .link-register a:active:focus:not(:disabled):not(.disabled),
+.setup-form .link-register button:hover,
+.setup-form .link-register button:focus,
+.setup-form .link-register button:active,
+.setup-form .link-register button:active:focus:not(:disabled):not(.disabled),
+.setup-form .link-register span:hover,
+.setup-form .link-register span:focus,
+.setup-form .link-register span:active,
+.setup-form .link-register span:active:focus:not(:disabled):not(.disabled),
+.setup-form .link-forgot-password a:hover,
+.setup-form .link-forgot-password a:focus,
+.setup-form .link-forgot-password a:active,
+.setup-form .link-forgot-password a:active:focus:not(:disabled):not(.disabled),
+.setup-form .link-forgot-password button:hover,
+.setup-form .link-forgot-password button:focus,
+.setup-form .link-forgot-password button:active,
+.setup-form .link-forgot-password button:active:focus:not(:disabled):not(.disabled),
+.setup-form .link-forgot-password span:hover,
+.setup-form .link-forgot-password span:focus,
+.setup-form .link-forgot-password span:active,
+.setup-form .link-forgot-password span:active:focus:not(:disabled):not(.disabled),
+.forgot-form .link-login a:hover,
+.forgot-form .link-login a:focus,
+.forgot-form .link-login a:active,
+.forgot-form .link-login a:active:focus:not(:disabled):not(.disabled),
+.forgot-form .link-login button:hover,
+.forgot-form .link-login button:focus,
+.forgot-form .link-login button:active,
+.forgot-form .link-login button:active:focus:not(:disabled):not(.disabled),
+.forgot-form .link-login span:hover,
+.forgot-form .link-login span:focus,
+.forgot-form .link-login span:active,
+.forgot-form .link-login span:active:focus:not(:disabled):not(.disabled),
+.forgot-form .link-register a:hover,
+.forgot-form .link-register a:focus,
+.forgot-form .link-register a:active,
+.forgot-form .link-register a:active:focus:not(:disabled):not(.disabled),
+.forgot-form .link-register button:hover,
+.forgot-form .link-register button:focus,
+.forgot-form .link-register button:active,
+.forgot-form .link-register button:active:focus:not(:disabled):not(.disabled),
+.forgot-form .link-register span:hover,
+.forgot-form .link-register span:focus,
+.forgot-form .link-register span:active,
+.forgot-form .link-register span:active:focus:not(:disabled):not(.disabled),
+.forgot-form .link-forgot-password a:hover,
+.forgot-form .link-forgot-password a:focus,
+.forgot-form .link-forgot-password a:active,
+.forgot-form .link-forgot-password a:active:focus:not(:disabled):not(.disabled),
+.forgot-form .link-forgot-password button:hover,
+.forgot-form .link-forgot-password button:focus,
+.forgot-form .link-forgot-password button:active,
+.forgot-form .link-forgot-password button:active:focus:not(:disabled):not(.disabled),
+.forgot-form .link-forgot-password span:hover,
+.forgot-form .link-forgot-password span:focus,
+.forgot-form .link-forgot-password span:active,
+.forgot-form .link-forgot-password span:active:focus:not(:disabled):not(.disabled) {
+  text-decoration: none;
+  color: #868e96;
+}
+
+.error-400,
+.error-401,
+.error-403,
+.error-404,
+.error-500 {
+  margin-bottom: 120px;
+}
+.error-400 svg,
+.error-401 svg,
+.error-403 svg,
+.error-404 svg,
+.error-500 svg {
+  width: 100%;
+}
+.error-400 h1,
+.error-401 h1,
+.error-403 h1,
+.error-404 h1,
+.error-500 h1 {
+  font-size: 7.5em;
+  margin: 15px 0px;
+  font-weight: bold;
+}
+.error-400 h2,
+.error-401 h2,
+.error-403 h2,
+.error-404 h2,
+.error-500 h2 {
+  font-weight: bold;
+}
+
+.leo .container {
+  background-color: #fafafa;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  width: 400px;
+  max-width: 100%;
+}
+.leo .header {
+  padding: 20px;
+}
+.leo .form {
+  padding: 20px;
+}
+.leo .form-control2 {
+  margin-bottom: 10px;
+  padding-bottom: 20px;
+  position: relative;
+}
+.leo .form-control2 label {
+  display: inline-block;
+  margin-bottom: 5px;
+}
+.leo .form-control2 input {
+  border: 2px solid #f0f0f0;
+  display: block;
+  border-radius: 10px;
+  font-size: 14px;
+  width: 100%;
+  padding: 10px;
+}
+.leo .form button {
+  background-color: #000000;
+  border: 2px solid #000000;
+  color: #fff;
+  font-size: 14px;
+  width: 100%;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.form-group label,
+.form-check label {
+  font-weight: 600;
+  color: rgba(142, 141, 141, 0.8);
+}
+
+.form-control {
+  height: 60px;
+  text-indent: 10px;
+  background: #e9ebef;
+  color: #637089;
+  border: none;
+  max-width: 100%;
+  border-radius: 10px;
+}
+.form-control:focus {
+  background: #e9ebef;
+  color: #637089;
+  box-shadow: none;
+}
+.form-control::-moz-placeholder {
+  color: #637089;
+  font-size: 0.9rem;
+}
+.form-control:-ms-input-placeholder {
+  color: #637089;
+  font-size: 0.9rem;
+}
+.form-control::placeholder {
+  color: #637089;
+  font-size: 0.9rem;
+}
+.form-control.step {
+  height: 60px;
+  text-indent: 10px;
+  background: transparent;
+  color: #8c97ac;
+  border: 2px solid #e9ebef;
+  max-width: 100%;
+  border-radius: 10px;
+}
+.form-control.step:focus {
+  background: transparent;
+  color: #8c97ac;
+  border: 2px solid #e9ebef;
+}
+.form-control.step::-moz-placeholder {
+  color: #cbd0da;
+  font-size: 0.9rem;
+}
+.form-control.step:-ms-input-placeholder {
+  color: #cbd0da;
+  font-size: 0.9rem;
+}
+.form-control.step::placeholder {
+  color: #cbd0da;
+  font-size: 0.9rem;
+}
+
+.select-wrapper {
+  position: relative;
+}
+.select-wrapper:after {
+  font-family: "Font Awesome 5 Pro";
+  content: "\f107";
+  font-weight: bold;
+  font-size: 1.3rem;
+  color: #cbd0da;
+  top: 50%;
+  right: 20px;
+  position: absolute;
+}
+
+select.form-control {
+  height: 60px;
+  padding-left: 0.5rem;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+select:not(select) {
+  border-radius: 0.25rem;
+  padding: 1.5rem 0.5rem;
+}
+
+.wicon {
+  position: relative;
+}
+.wicon input {
+  text-indent: 30px;
+  color: #aeb0b0;
+  border-radius: 10px;
+}
+.wicon input:focus {
+  box-shadow: none;
+}
+.wicon input::-moz-placeholder {
+  font-size: 0.9rem;
+}
+.wicon input:-ms-input-placeholder {
+  font-size: 0.9rem;
+}
+.wicon input::placeholder {
+  font-size: 0.9rem;
+}
+.wicon .fa,
+.wicon .fas,
+.wicon .far,
+.wicon .fal,
+.wicon .fad,
+.wicon .fab {
+  position: absolute;
+  top: 20px;
+  color: #aeb0b0;
+}
+.wicon .fa.right,
+.wicon .fas.right,
+.wicon .far.right,
+.wicon .fal.right,
+.wicon .fad.right,
+.wicon .fab.right {
+  right: 16px;
+}
+.wicon .fa.left,
+.wicon .fas.left,
+.wicon .far.left,
+.wicon .fal.left,
+.wicon .fad.left,
+.wicon .fab.left {
+  left: 16px;
+}
+
+.btn-label {
+  position: relative;
+  padding-left: 44px;
+}
+.btn-label .label-icon {
+  position: absolute;
+  width: 32px;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background: rgba(255, 255, 255, 0.1);
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.list-step {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.list-step [class*=col-md-] {
+  padding: 0;
+}
+.list-step .list-group-item {
+  border: none;
+  border-bottom: 5px solid #eaeaea;
+  width: 98%;
+  color: #eaeaea;
+  font-weight: bold;
+  padding: 0.75rem 0 0.75rem 0;
+  margin-right: 5rem;
+}
+.list-step .list-group-item.active {
+  border-bottom: 5px solid #2a5ee4;
+  color: #2a5ee4;
+  background: transparent;
+}
+.list-step .list-group-item:first-child, .list-step .list-group-item:last-child {
+  border-radius: 0;
+}
+
+.must-item {
+  position: relative;
+  width: 15em;
+  height: 1em;
+  padding: 0.2em 0;
+}
+
+.must-text {
+  position: absolute;
+  z-index: 0;
+  top: 0.6em;
+  left: 1em;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  line-height: 0;
+}
+
+.alert-success.alert-border,
+.alert-danger.alert-border,
+.alert-warning.alert-border,
+.alert-info.alert-border {
+  background: none;
+  border: none;
+  border-radius: 0;
+  background: #fff;
+}
+.alert-success.alert-icon,
+.alert-danger.alert-icon,
+.alert-warning.alert-icon,
+.alert-info.alert-icon {
+  background: #f3f8f3;
+  border: none;
+  border-radius: 0;
+}
+.alert-success.alert-icon.p-4,
+.alert-danger.alert-icon.p-4,
+.alert-warning.alert-icon.p-4,
+.alert-info.alert-icon.p-4 {
+  padding: 0.75rem 0.75rem !important;
+}
+.alert-success.alert-icon .fa,
+.alert-danger.alert-icon .fa,
+.alert-warning.alert-icon .fa,
+.alert-info.alert-icon .fa {
+  color: #45d298;
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 40px;
+}
+.alert-success .alert-body,
+.alert-danger .alert-body,
+.alert-warning .alert-body,
+.alert-info .alert-body {
+  padding-left: 0.75rem;
+  display: table-cell;
+  color: rgba(0, 0, 0, 0.5);
+}
+.alert-success .alert-header,
+.alert-danger .alert-header,
+.alert-warning .alert-header,
+.alert-info .alert-header {
+  font-weight: 700;
+  color: #45d298;
+  padding: 0;
+  margin: 0;
+}
+
+.alert-success.alert-border {
+  background: rgba(92, 184, 92, 0.4);
+  border-left: 4px solid #5cb85c;
+}
+.alert-success.alert-icon {
+  background: rgba(92, 184, 92, 0.4);
+  border-left: 4px solid #5cb85c;
+}
+
+.alert-danger.alert-border {
+  background: rgba(217, 83, 79, 0.4);
+  border-left: 4px solid #d9534f;
+}
+.alert-danger.alert-icon {
+  background: rgba(217, 83, 79, 0.4);
+  border-left: 4px solid #d9534f;
+}
+
+.alert-warning.alert-border {
+  background: rgba(240, 173, 78, 0.4);
+  border-left: 4px solid #f0ad4e;
+}
+.alert-warning.alert-icon {
+  background: rgba(240, 173, 78, 0.4);
+  border-left: 4px solid #f0ad4e;
+}
+
+.alert-info.alert-border {
+  background: rgba(91, 192, 222, 0.4);
+  border-left: 4px solid #5bc0de;
+}
+.alert-info.alert-icon {
+  background: rgba(91, 192, 222, 0.4);
+  border-left: 4px solid #5bc0de;
+}
+
+.card {
+  word-wrap: break-word;
+  background: #fff;
+  background-clip: border-box;
+  border: 2px solid rgba(0, 0, 0, 0.125);
+}
+
+.card,
+.card-body {
+  box-shadow: none;
+  border-radius: 6px;
+}
+
+.card-customers .card-body .empty-tatto span,
+.card-customers .card-body .empty-tatto small,
+.card-professionals .card-body .empty-tatto span,
+.card-professionals .card-body .empty-tatto small {
+  display: block;
+}
+.card-customers .card-body .empty-tatto .empty-tatto-image,
+.card-professionals .card-body .empty-tatto .empty-tatto-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.card-customers .card-body .empty-tatto .empty-tatto-image img,
+.card-customers .card-body .empty-tatto .empty-tatto-image svg,
+.card-professionals .card-body .empty-tatto .empty-tatto-image img,
+.card-professionals .card-body .empty-tatto .empty-tatto-image svg {
+  max-width: 100%;
+  width: 30%;
+  height: 30%;
+}
+.card-customers .card-body .empty-tatto .empty-tatto-title,
+.card-professionals .card-body .empty-tatto .empty-tatto-title {
+  font-weight: bold;
+  font-size: 20px;
+}
+.card-customers .card-body .empty-tatto .empty-tatto-description,
+.card-professionals .card-body .empty-tatto .empty-tatto-description {
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.card-customers .card-header,
+.card-customers .card-body,
+.card-customers .card-footer {
+  margin: 20px 0 20px 0;
+}
+.card-customers .card-header {
+  background: #fff;
+  border-bottom: none;
+}
+.card-customers .card-header h1,
+.card-customers .card-header h2,
+.card-customers .card-header h3,
+.card-customers .card-header h4,
+.card-customers .card-header h5,
+.card-customers .card-header h6,
+.card-customers .card-header span,
+.card-customers .card-header p {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.card-customers .card-footer {
+  background: #fff;
+  border-top: none;
+}
+
+.card-professionals .card-header,
+.card-professionals .card-body,
+.card-professionals .card-footer {
+  margin: 20px 0 20px 0;
+}
+.card-professionals .card-header {
+  background: #fff;
+  border-bottom: none;
+}
+.card-professionals .card-header h1,
+.card-professionals .card-header h2,
+.card-professionals .card-header h3,
+.card-professionals .card-header h4,
+.card-professionals .card-header h5,
+.card-professionals .card-header h6,
+.card-professionals .card-header span,
+.card-professionals .card-header p {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.card-professionals .card-footer {
+  background: #fff;
+  border-top: none;
+}
+
+.card-options {
+  border: none;
+}
+.card-options .card-header {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-bottom: none;
+}
+.card-options .card-header i {
+  font-size: 1.25rem;
+  margin-right: 20px;
+}
+.card-options .card-header h1,
+.card-options .card-header h2,
+.card-options .card-header h3,
+.card-options .card-header h4,
+.card-options .card-header h5,
+.card-options .card-header h6,
+.card-options .card-header span,
+.card-options .card-header p {
+  font-weight: bold;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+.card-options .card-footer {
+  background: #fff;
+  border-top: none;
+}
+
+.card-setting-info .card-body .card-title {
+  text-align: left;
+  font-size: 20px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.6;
+  letter-spacing: -0.56px;
+  color: #000;
+  margin-top: 0;
+  margin-bottom: 24px;
+}
+.card-setting-info .card-body .input-editable span {
+  font-weight: bold;
+  color: #939ba2;
+}
+.card-setting-info .card-body .input-editable p {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-step {
+  padding: 1rem;
+}
+.card-step .card-body .step-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.card-step .card-body .step-options span {
+  color: rgba(142, 141, 141, 0.8);
+}
+.card-step .card-body .step-options .btn-link {
+  font-weight: bold;
+  margin-right: 20px;
+}
+
+.card-gallery-tatto {
+  width: 18rem;
+}
+.card-gallery-tatto .card-img-top {
+  border-top-right-radius: 6px;
+  border-top-left-radius: 6px;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.125);
+  width: 100%;
+  height: 20vw;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.card-gallery-tatto .badge-remove {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 15px;
+  background: #e12d3a;
+  border-color: #e12d3a;
+  color: #fff;
+  transition: 0.5s ease;
+}
+.card-gallery-tatto .badge-remove:hover {
+  color: #fff;
+  background: #e4434f;
+  border-color: #e4434f;
+}
+.card-gallery-tatto .card-shop-image {
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 20vw;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.card-gallery-tatto .card-body .card-title {
+  font-weight: bold;
+  color: #000;
+}
+
+.btn-login,
+.btn-login:focus,
+.btn-login:active,
+.btn-login:active:focus:not(:disabled):not(.disabled) {
+  color: #fff;
+  background: #1111cb;
+  border-color: #1111cb;
+  height: 60px;
+  border-radius: 10px;
+  transition: 0.5s ease;
+}
+.btn-login:hover,
+.btn-login:focus:hover,
+.btn-login:active:hover,
+.btn-login:active:focus:not(:disabled):not(.disabled):hover {
+  color: #fff;
+  background: #3935b5;
+  border-color: #3935b5;
+}
+.btn-login:disabled,
+.btn-login button[disabled],
+.btn-login:focus:disabled,
+.btn-login:focus button[disabled],
+.btn-login:active:disabled,
+.btn-login:active button[disabled],
+.btn-login:active:focus:not(:disabled):not(.disabled):disabled,
+.btn-login:active:focus:not(:disabled):not(.disabled) button[disabled] {
+  cursor: not-allowed;
+}
+
+.btn-send-recovery,
+.btn-send-recovery:focus,
+.btn-send-recovery:active,
+.btn-send-recovery:active:focus:not(:disabled):not(.disabled) {
+  color: #fff;
+  background: #1111cb;
+  border-color: #1111cb;
+  height: 60px;
+  border-radius: 10px;
+  transition: 0.5s ease;
+}
+.btn-send-recovery:hover,
+.btn-send-recovery:focus:hover,
+.btn-send-recovery:active:hover,
+.btn-send-recovery:active:focus:not(:disabled):not(.disabled):hover {
+  color: #fff;
+  background: #3935b5;
+  border-color: #3935b5;
+}
+.btn-send-recovery:disabled,
+.btn-send-recovery button[disabled],
+.btn-send-recovery:focus:disabled,
+.btn-send-recovery:focus button[disabled],
+.btn-send-recovery:active:disabled,
+.btn-send-recovery:active button[disabled],
+.btn-send-recovery:active:focus:not(:disabled):not(.disabled):disabled,
+.btn-send-recovery:active:focus:not(:disabled):not(.disabled) button[disabled] {
+  cursor: not-allowed;
+}
+
+.btn-back {
+  z-index: 1;
+  overflow: hidden;
+  background: transparent;
+  position: relative;
+  padding: 8px 50px;
+  border-radius: 30px;
+  font-size: 1em;
+  letter-spacing: 2px;
+  font-weight: bold;
+  margin: 5px 0px;
+  border: 2px solid #007bff;
+  color: #007bff;
+  transition: 0.7s ease;
+  cursor: pointer;
+}
+.btn-back:hover {
+  color: #fff;
+  background: #0062cc;
+}
+
+.btn-option,
+.btn-option:focus,
+.btn-option:active,
+.btn-option:active:focus:not(:disabled):not(.disabled) {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #000;
+  background: #fff;
+  border-color: #fff;
+  height: 80px;
+  border-radius: 10px;
+  transition: 0.5s ease;
+  box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.1);
+  font-weight: 600;
+}
+.btn-option .icon-box,
+.btn-option:focus .icon-box,
+.btn-option:active .icon-box,
+.btn-option:active:focus:not(:disabled):not(.disabled) .icon-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #d6e9f6;
+  color: #4287fe;
+  font-size: 23px;
+  margin-right: 20px;
+}
+.btn-option .fas:not(.icon-box),
+.btn-option:focus .fas:not(.icon-box),
+.btn-option:active .fas:not(.icon-box),
+.btn-option:active:focus:not(:disabled):not(.disabled) .fas:not(.icon-box) {
+  font-size: 1.25rem;
+  margin-right: 20px;
+}
+.btn-option:hover,
+.btn-option:focus:hover,
+.btn-option:active:hover,
+.btn-option:active:focus:not(:disabled):not(.disabled):hover {
+  color: #000;
+  background: #f7f7f7;
+  border-color: #f7f7f7;
+}
+.btn-option:disabled,
+.btn-option button[disabled],
+.btn-option:focus:disabled,
+.btn-option:focus button[disabled],
+.btn-option:active:disabled,
+.btn-option:active button[disabled],
+.btn-option:active:focus:not(:disabled):not(.disabled):disabled,
+.btn-option:active:focus:not(:disabled):not(.disabled) button[disabled] {
+  cursor: not-allowed;
+}
+
+.btn-create,
+.btn-create:focus,
+.btn-create:active,
+.btn-create:active:focus:not(:disabled):not(.disabled) {
+  color: #fff;
+  background: #1111cb;
+  border-color: #1111cb;
+  padding: 10px 30px;
+  border-radius: 10px;
+  transition: 0.5s ease;
+}
+.btn-create.add-customer,
+.btn-create:focus.add-customer,
+.btn-create:active.add-customer,
+.btn-create:active:focus:not(:disabled):not(.disabled).add-customer {
+  padding: 5px 20px;
+}
+.btn-create:hover,
+.btn-create:focus:hover,
+.btn-create:active:hover,
+.btn-create:active:focus:not(:disabled):not(.disabled):hover {
+  color: #fff;
+  background: #3935b5;
+  border-color: #3935b5;
+}
+.btn-create:disabled,
+.btn-create button[disabled],
+.btn-create:focus:disabled,
+.btn-create:focus button[disabled],
+.btn-create:active:disabled,
+.btn-create:active button[disabled],
+.btn-create:active:focus:not(:disabled):not(.disabled):disabled,
+.btn-create:active:focus:not(:disabled):not(.disabled) button[disabled] {
+  cursor: not-allowed;
+}
+
+.btn-update,
+.btn-update:focus,
+.btn-update:active,
+.btn-update:active:focus:not(:disabled):not(.disabled) {
+  color: #fff;
+  background: #1111cb;
+  border-color: #1111cb;
+  padding: 10px 30px;
+  border-radius: 10px;
+  transition: 0.5s ease;
+}
+.btn-update.add-customer,
+.btn-update:focus.add-customer,
+.btn-update:active.add-customer,
+.btn-update:active:focus:not(:disabled):not(.disabled).add-customer {
+  padding: 5px 20px;
+}
+.btn-update:hover,
+.btn-update:focus:hover,
+.btn-update:active:hover,
+.btn-update:active:focus:not(:disabled):not(.disabled):hover {
+  color: #fff;
+  background: #3935b5;
+  border-color: #3935b5;
+}
+.btn-update:disabled,
+.btn-update button[disabled],
+.btn-update:focus:disabled,
+.btn-update:focus button[disabled],
+.btn-update:active:disabled,
+.btn-update:active button[disabled],
+.btn-update:active:focus:not(:disabled):not(.disabled):disabled,
+.btn-update:active:focus:not(:disabled):not(.disabled) button[disabled] {
+  cursor: not-allowed;
+}
+
+.btn-view,
+.btn-view:focus,
+.btn-view:active,
+.btn-view:active:focus:not(:disabled):not(.disabled) {
+  color: #fff;
+  background: #1111cb;
+  border-color: #1111cb;
+  padding: 10px 30px;
+  border-radius: 10px;
+  transition: 0.5s ease;
+}
+.btn-view.add-customer,
+.btn-view:focus.add-customer,
+.btn-view:active.add-customer,
+.btn-view:active:focus:not(:disabled):not(.disabled).add-customer {
+  padding: 5px 20px;
+}
+.btn-view:hover,
+.btn-view:focus:hover,
+.btn-view:active:hover,
+.btn-view:active:focus:not(:disabled):not(.disabled):hover {
+  color: #fff;
+  background: #3935b5;
+  border-color: #3935b5;
+}
+.btn-view:disabled,
+.btn-view button[disabled],
+.btn-view:focus:disabled,
+.btn-view:focus button[disabled],
+.btn-view:active:disabled,
+.btn-view:active button[disabled],
+.btn-view:active:focus:not(:disabled):not(.disabled):disabled,
+.btn-view:active:focus:not(:disabled):not(.disabled) button[disabled] {
+  cursor: not-allowed;
+}
+
+.btn-delete,
+.btn-delete:focus,
+.btn-delete:active,
+.btn-delete:active:focus:not(:disabled):not(.disabled) {
+  color: #fff;
+  background: #e12d3a;
+  border-color: #e12d3a;
+  padding: 10px 30px;
+  border-radius: 10px;
+  transition: 0.5s ease;
+}
+.btn-delete:hover,
+.btn-delete:focus:hover,
+.btn-delete:active:hover,
+.btn-delete:active:focus:not(:disabled):not(.disabled):hover {
+  color: #fff;
+  background: #e4434f;
+  border-color: #e4434f;
+}
+.btn-delete:disabled,
+.btn-delete button[disabled],
+.btn-delete:focus:disabled,
+.btn-delete:focus button[disabled],
+.btn-delete:active:disabled,
+.btn-delete:active button[disabled],
+.btn-delete:active:focus:not(:disabled):not(.disabled):disabled,
+.btn-delete:active:focus:not(:disabled):not(.disabled) button[disabled] {
+  cursor: not-allowed;
+}
+
+.btn-cancel,
+.btn-cancel:focus,
+.btn-cancel:active,
+.btn-cancel:active:focus:not(:disabled):not(.disabled) {
+  color: #fff;
+  background: #627d98;
+  border-color: #627d98;
+  padding: 10px 30px;
+  border-radius: 10px;
+  transition: 0.5s ease;
+}
+.btn-cancel:hover,
+.btn-cancel:focus:hover,
+.btn-cancel:active:hover,
+.btn-cancel:active:focus:not(:disabled):not(.disabled):hover {
+  color: #fff;
+  background: #708aa3;
+  border-color: #708aa3;
+}
+.btn-cancel:disabled,
+.btn-cancel button[disabled],
+.btn-cancel:focus:disabled,
+.btn-cancel:focus button[disabled],
+.btn-cancel:active:disabled,
+.btn-cancel:active button[disabled],
+.btn-cancel:active:focus:not(:disabled):not(.disabled):disabled,
+.btn-cancel:active:focus:not(:disabled):not(.disabled) button[disabled] {
+  cursor: not-allowed;
+}
+
+.btn-refresh,
+.btn-refresh:focus,
+.btn-refresh:active,
+.btn-refresh:active:focus:not(:disabled):not(.disabled) {
+  color: #000;
+  background: #fff;
+  border: 2px solid rgba(0, 0, 0, 0.125);
+  padding: 5px 20px;
+  border-radius: 10px;
+  transition: 0.5s ease;
+}
+.btn-refresh.add-customer,
+.btn-refresh:focus.add-customer,
+.btn-refresh:active.add-customer,
+.btn-refresh:active:focus:not(:disabled):not(.disabled).add-customer {
+  padding: 5px 20px;
+}
+.btn-refresh:hover,
+.btn-refresh:focus:hover,
+.btn-refresh:active:hover,
+.btn-refresh:active:focus:not(:disabled):not(.disabled):hover {
+  color: #000;
+  background: #fff;
+  border: 2px solid rgba(0, 0, 0, 0.125);
+}
+.btn-refresh:disabled,
+.btn-refresh button[disabled],
+.btn-refresh:focus:disabled,
+.btn-refresh:focus button[disabled],
+.btn-refresh:active:disabled,
+.btn-refresh:active button[disabled],
+.btn-refresh:active:focus:not(:disabled):not(.disabled):disabled,
+.btn-refresh:active:focus:not(:disabled):not(.disabled) button[disabled] {
+  cursor: not-allowed;
+}
+
+.btn-modal-edit,
+.btn-modal-edit:focus,
+.btn-modal-edit:active,
+.btn-modal-edit:active:focus:not(:disabled):not(.disabled) {
+  color: #fff;
+  background: #1111cb;
+  border-color: #1111cb;
+  height: 60px;
+  border-radius: 10px;
+  transition: 0.5s ease;
+}
+.btn-modal-edit:hover,
+.btn-modal-edit:focus:hover,
+.btn-modal-edit:active:hover,
+.btn-modal-edit:active:focus:not(:disabled):not(.disabled):hover {
+  color: #fff;
+  background: #3935b5;
+  border-color: #3935b5;
+}
+.btn-modal-edit:disabled,
+.btn-modal-edit button[disabled],
+.btn-modal-edit:focus:disabled,
+.btn-modal-edit:focus button[disabled],
+.btn-modal-edit:active:disabled,
+.btn-modal-edit:active button[disabled],
+.btn-modal-edit:active:focus:not(:disabled):not(.disabled):disabled,
+.btn-modal-edit:active:focus:not(:disabled):not(.disabled) button[disabled] {
+  cursor: not-allowed;
+}
+
+.btn-step,
+.btn-step:focus,
+.btn-step:active,
+.btn-step:active:focus:not(:disabled):not(.disabled) {
+  color: #3935b5;
+  border: 2px solid #1111cb;
+  padding: 10px 30px;
+  border-radius: 10px;
+  transition: 0.5s ease;
+}
+.btn-step.finish,
+.btn-step:focus.finish,
+.btn-step:active.finish,
+.btn-step:active:focus:not(:disabled):not(.disabled).finish {
+  color: #fff;
+  background: #3935b5;
+  border-color: #3935b5;
+}
+.btn-step.finish:hover,
+.btn-step:focus.finish:hover,
+.btn-step:active.finish:hover,
+.btn-step:active:focus:not(:disabled):not(.disabled).finish:hover {
+  color: #fff;
+  background: #1111cb;
+  border-color: #1111cb;
+}
+.btn-step:hover,
+.btn-step:focus:hover,
+.btn-step:active:hover,
+.btn-step:active:focus:not(:disabled):not(.disabled):hover {
+  color: #fff;
+  background: #3935b5;
+  border-color: #3935b5;
+}
+.btn-step:disabled,
+.btn-step button[disabled],
+.btn-step:focus:disabled,
+.btn-step:focus button[disabled],
+.btn-step:active:disabled,
+.btn-step:active button[disabled],
+.btn-step:active:focus:not(:disabled):not(.disabled):disabled,
+.btn-step:active:focus:not(:disabled):not(.disabled) button[disabled] {
+  cursor: not-allowed;
+}
+
+.modal-settings .modal-header,
+.modal-settings .modal-body,
+.modal-settings .modal-footer {
+  border: none;
+}
+.modal-settings .modal-header h1,
+.modal-settings .modal-header h2,
+.modal-settings .modal-header h3,
+.modal-settings .modal-header h4,
+.modal-settings .modal-header h5,
+.modal-settings .modal-header h6 {
+  font-size: 20px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.6;
+  letter-spacing: -0.56px;
+  text-align: center;
+  margin-bottom: 14px;
+  text-transform: capitalize;
+}
+.modal-settings .modal-body {
+  padding-top: 0;
+}
+.modal-settings .modal-body .edit-option {
+  font-size: 20px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.6;
+  letter-spacing: -0.56px;
+  text-align: center;
+  margin-bottom: 14px;
+  text-transform: capitalize;
+}
+.modal-settings .modal-footer .delete {
+  padding: 1rem 1rem;
+  margin: -1rem -1rem -1rem auto;
+}
+
+.table-professionals,
+.table-customers {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 8px;
+  overflow-x: auto;
+}
+.table-professionals th,
+.table-customers th {
+  color: #3c4043;
+  font-weight: bold;
+  font-size: 13px;
+  padding: 20px 32px;
+  text-align: left;
+  line-height: 24px;
+  transition: color 0.5s;
+}
+.table-professionals tr,
+.table-customers tr {
+  margin-bottom: 520px;
+}
+.table-professionals td,
+.table-customers td {
+  padding: 20px 32px;
+  border: 0;
+  background: #f0f6fd;
+  font-size: 16px;
+  font-weight: normal;
+  color: #969cb3;
+  transition: background-color 0.4s color 0.4s;
+}
+.table-professionals td.title,
+.table-customers td.title {
+  color: #363f5f;
+}
+.table-professionals td.income,
+.table-customers td.income {
+  color: #12a454;
+}
+.table-professionals td.outcome,
+.table-customers td.outcome {
+  color: #e83f5b;
+}
+.table-professionals td:first-child,
+.table-customers td:first-child {
+  border-radius: 10px 0 0 10px;
+}
+.table-professionals td:last-child,
+.table-customers td:last-child {
+  border-radius: 0 10px 10px 0;
+}
+.table-professionals .dropdown i,
+.table-customers .dropdown i {
+  cursor: pointer;
+}
+.table-professionals .link-profile,
+.table-customers .link-profile {
+  font-weight: bold;
+  color: #5c6073;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.pagination .page-item.active .page-link {
+  background-color: #1111cb;
+  border-color: #1111cb;
+}
+
+.container-loading {
+  width: 100%;
+  height: 100vh;
+}
+.container-loading .loading img,
+.container-loading .loading svg {
+  -webkit-animation: logo ease-in-out 3s infinite;
+          animation: logo ease-in-out 3s infinite;
+  max-width: 100%;
+  width: 100px;
+  height: 100px;
+}
+.container-loading .loading img.logo,
+.container-loading .loading svg.logo {
+  width: 300px;
+  height: 300px;
+}
+.container-loading .loading h1,
+.container-loading .loading h2,
+.container-loading .loading h3,
+.container-loading .loading h4,
+.container-loading .loading h5,
+.container-loading .loading h6,
+.container-loading .loading span,
+.container-loading .loading p {
+  -webkit-animation: logo-text 2s ease infinite;
+          animation: logo-text 2s ease infinite;
+  font-size: 70px;
+  text-transform: uppercase;
+  -webkit-touch-callout: none;
+  /* iPhone OS, Safari */
+  -webkit-user-select: none;
+  /* Chrome, Safari 3 */
+  /* Safari 2 */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* IE10+ */
+  user-select: none;
+  /* Possível implementação no futuro */
+}
+@-webkit-keyframes logo {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(15px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes logo {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(15px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@-webkit-keyframes logo-text {
+  0% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(1.2, 1.2);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
+@keyframes logo-text {
+  0% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(1.2, 1.2);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}/*# sourceMappingURL=styles.css.map */

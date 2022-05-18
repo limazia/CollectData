@@ -7,8 +7,16 @@ const { ConstantSuccess } = require("../../app/constants");
 
 moment.locale("pt-br");
 
-class UserController {
-  async createUser(request, response, next) {
+class ScheduleController {
+  async listAllSchedules(request, response, next){
+    try {
+      return response.json({ data: null });
+    } catch (ex) {
+      next(ex);
+    }
+  }
+
+  async createSchedule(request, response, next) {
     try {
       const { name, email, password, confirmPassword } = request.body;
       const user = await connection("users").select("*").where({ email });
@@ -44,20 +52,12 @@ class UserController {
       });    
       
       return response.json({ message: "Conta criada com sucesso" });
-    } catch (error) {
-      next(error);
+    } catch (ex) {
+      next(ex);
     }
   }
 
-  async listAllUsers(request, response, next){
-    try {
-      return response.json({ data: null });
-    } catch (error) {
-      next(error);
-    }
-  }
-
-  async findUserById(request, response, next) {
+  async findScheduleById(request, response, next) {
     try {
       const { id } = request.params;
       const results = await connection("users").where({ id });
@@ -81,12 +81,12 @@ class UserController {
       } else {
         response.json({ error: "Nenhum usuário foi encontrado com este id." });
       }
-    } catch (error) {
-      next(error);
+    } catch (ex) {
+      next(ex);
     }
   }
 
-  async updateUserById(request, response, next) {
+  async updateScheduleById(request, response, next) {
     try {
       const { username, email, password, newPassword, confirmNewPassword } = request.body;
 
@@ -147,20 +147,22 @@ class UserController {
       .where({ id: request.userId });
       
       return response.json({ message: ConstantSuccess.ACCOUNT_SUCCESSFULLY_UPDATED });
-    } catch (error) {
-      next(error);
+    } catch (ex) {
+      next(ex);
     }
   }
 
-  async deleteUserById(request, response, next) {
+  async deleteScheduleById(request, response, next) {
     try {
       const { id } = request.params;
 
-      return response.json({ user: id });
-    } catch (error) {
-      next(error);
+      await connection("users").delete().where({ id });
+
+      return response.json({ message: "Usuário deletado com sucesso" });
+    } catch (ex) {
+      next(ex);
     }
   }
 }
 
-module.exports = new UserController();
+module.exports = new ScheduleController();

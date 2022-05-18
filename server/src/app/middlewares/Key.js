@@ -11,9 +11,11 @@ class Key {
     try {
       if (authHeader === process.env.API_KEY) {      
         return next();
+      } else {
+        return response.json({ error: ConstantError.INVALID_API_KEY });
       }
     } catch (err) {
-      return response.json({ error: ConstantError.INVALID_API_KEY });
+      return response.json({ error: ConstantError.INVALID_API_KEY }); // error unknow
     }
   }
 }
