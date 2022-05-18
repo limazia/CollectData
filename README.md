@@ -5,6 +5,18 @@ O sistema Collect Data é um aplicativo para estúdios de tatuagem com agendamen
 
 Collect Data requer [Node.js](https://nodejs.org/) v10+ para execução.
 
+Configure a conexão com seu banco de dados.
+
+```sh
+.env
+DB_DRIVE=
+DB_HOST=
+DB_PORT=
+DB_DATABASE=
+DB_USERNAME=
+DB_PASSWORD=
+```
+
 Instale as dependências e devDependencies e inicie o servidor.
 
 ```sh
@@ -15,13 +27,6 @@ npm run dev
 ```
 
 Para ambientes de produção...
-
-```sh
-cd collect_data
-cd server
-npm i
-npm start
-```
 
 ```sh
 .env
@@ -35,6 +40,13 @@ cd collect_data
 cd web
 npm i
 npm start
+```
+
+Para ambientes de produção...
+
+```sh
+.env
+REACT_APP_ENV=production
 ```
 
 ## Tecnologias
