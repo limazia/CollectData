@@ -60,7 +60,7 @@ O aplicativo Collect Data será desenvolvido em:
 
 ## Autores
 
-| [<img src="https://avatars.githubusercontent.com/u/32038004?v=2"><br><sub>@limazia</sub>](https://github.com/limazia) | [<img src="https://avatars.githubusercontent.com/u/83615741?v=2"><br><sub>@gabrieloliveira2111</sub>](https://github.com/gabrieloliveira2111) | [<img src="https://avatars.githubusercontent.com/u/89888509?v=2"><br><sub>@luisrenato02</sub>](https://github.com/luisrenato02) | [<img src="https://avatars.githubusercontent.com/u/102265428?v=2"><br><sub>@leonardoXimenes</sub>](https://github.com/leonardoXimenes) | [<img src="https://avatars.githubusercontent.com/u/102265479?v=2"><br><sub>@Mbizoo</sub>](https://github.com/Mbizoo) | 
+| [<img src="https://avatars.githubusercontent.com/u/32038004?v=2" width="200px" height="200px"><br><sub>@limazia</sub>](https://github.com/limazia) | [<img src="https://avatars.githubusercontent.com/u/83615741?v=2" width="200px" height="200px"><br><sub>@gabrieloliveira2111</sub>](https://github.com/gabrieloliveira2111) | [<img src="https://avatars.githubusercontent.com/u/89888509?v=2" width="200px" height="200px"><br><sub>@luisrenato02</sub>](https://github.com/luisrenato02) | [<img src="https://avatars.githubusercontent.com/u/102265428?v=2" width="200px" height="200px"><br><sub>@leonardoXimenes</sub>](https://github.com/leonardoXimenes) | [<img src="https://avatars.githubusercontent.com/u/102265479?v=2" width="200px" height="200px"><br><sub>@Mbizoo</sub>](https://github.com/Mbizoo) | 
 |---|---|---|---|---|
 
 ## License
