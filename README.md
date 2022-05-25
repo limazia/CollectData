@@ -58,6 +58,11 @@ O aplicativo Collect Data será desenvolvido em:
 - MySQL
 - ReactJS (Bootstrap 4, Styled Components e Font Awesome)
 
+## Autores
+
+| [<img src="https://avatars.githubusercontent.com/u/32038004?s=96&v=4"><br><sub>@limazia</sub>](https://github.com/limazia) |
+| :---: |
+
 ## License
 
 MIT
