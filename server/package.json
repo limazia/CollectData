@@ -6,8 +6,8 @@
   "scripts": {
     "start": "node src/server.js",
     "dev": "nodemon src/server.js",
-    "knex:seed": "knex --knexfile knexfile.js seed:run",
-    "knex:migrate": "knex migrate:latest --knexfile knexfile.js migrate:latest"
+    "knex:migrate": "knex migrate:latest --knexfile knexfile.js migrate:latest",
+    "knex:seed": "knex --knexfile knexfile.js seed:run"
   },
   "repository": {
     "url": "https://github.com/limazia/collect_data"

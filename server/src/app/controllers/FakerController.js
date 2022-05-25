@@ -1,4 +1,5 @@
 const { createUser } = require("../../helpers/faker.helper");
+const bcrypt = require("bcrypt");
 
 class FakerController {
   async createFaker(request, response, next) {

@@ -31,11 +31,9 @@ function GlobalFilter({
   const navigate = useNavigate();
 
   const goCreate = () => navigate("/professional/create");
-  const refreshCustomers = debounce((e) => {
+  const refreshProfessionals = debounce((e) => {
     const event = new CustomEvent("refresh-professionals");
     window.dispatchEvent(event);
-
-    toast.success("Lista atualizada");
   }, 1000);
 
   return (
@@ -56,7 +54,7 @@ function GlobalFilter({
         </div>
       </div>
       <div className="col-md-6 d-flex align-items-center justify-content-end">
-        <button className="btn btn-refresh mr-3" onClick={refreshCustomers}>
+        <button className="btn btn-refresh mr-3" onClick={refreshProfessionals}>
           <i className="far fa-sync"></i>
         </button>
         <button className="btn btn-create add-customer" onClick={goCreate}>
@@ -307,7 +305,7 @@ function TableProfessionals({ columns, data }) {
                   setPageSize(Number(e.target.value));
                 }}
               >
-                {[10, 20, 50, 100].map((pageSize) => (
+                {[10, 20, 50].map((pageSize) => (
                   <option key={pageSize} value={pageSize}>
                     Mostrar {pageSize}
                   </option>

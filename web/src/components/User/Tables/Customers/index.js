@@ -31,11 +31,10 @@ function GlobalFilter({
   const navigate = useNavigate();
 
   const goCreate = () => navigate("/customer/create");
+  
   const refreshCustomers = debounce((e) => {
     const event = new CustomEvent("refresh-customers");
     window.dispatchEvent(event);
-
-    toast.success("Lista atualizada");
   }, 1000);
 
   return (
@@ -247,51 +246,49 @@ function TableCustomers({ columns, data }) {
                   )}
                 </td>
                 <td>{row.original.createdAt}</td>
-                {user.primary_user && (
-                  <td>
-                    <div className="dropdown">
-                      <i
-                        className="far fa-ellipsis-v mr-3"
-                        id="dropdownMenuButton"
-                        data-toggle="dropdown"
-                        aria-haspopup="true"
-                        aria-expanded="false"
-                      ></i>
-                      <div
-                        className="dropdown-menu"
-                        aria-labelledby="dropdownMenuButton"
+                <td>
+                  <div className="dropdown">
+                    <i
+                      className="far fa-ellipsis-v mr-3"
+                      id="dropdownMenuButton"
+                      data-toggle="dropdown"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                    ></i>
+                    <div
+                      className="dropdown-menu"
+                      aria-labelledby="dropdownMenuButton"
+                    >
+                      <Link
+                        className="dropdown-item"
+                        to={`/tatto/create/${row.original.id}`}
                       >
-                        <Link
-                          className="dropdown-item"
-                          to={`/tatto/create/${row.original.id}`}
-                        >
-                          <i className="fas fa-kiwi-bird mr-2 "></i>
-                          Adicionar tatuagem
-                        </Link>
-                        <Link
-                          className="dropdown-item"
-                          to={`/customer/edit/${row.original.id}`}
-                        >
-                          <i className="fas fa-pencil-alt mr-2"></i>
-                          Editar
-                        </Link>
-                        <button
-                          className="dropdown-item"
-                          data-toggle="modal"
-                          data-target="#deleteCostumer"
-                          value={[
-                            row.original.id,
-                            `${row.original.name} ${row.original.surname}`,
-                          ]}
-                          onClick={(e) => handleSelect(e, "value")}
-                        >
-                          <i className="fas fa-trash-alt mr-2"></i>
-                          Remover
-                        </button>
-                      </div>
+                        <i className="fas fa-kiwi-bird mr-2 "></i>
+                        Adicionar tatuagem
+                      </Link>
+                      <Link
+                        className="dropdown-item"
+                        to={`/customer/edit/${row.original.id}`}
+                      >
+                        <i className="fas fa-pencil-alt mr-2"></i>
+                        Editar
+                      </Link>
+                      <button
+                        className="dropdown-item"
+                        data-toggle="modal"
+                        data-target="#deleteCostumer"
+                        value={[
+                          row.original.id,
+                          `${row.original.name} ${row.original.surname}`,
+                        ]}
+                        onClick={(e) => handleSelect(e, "value")}
+                      >
+                        <i className="fas fa-trash-alt mr-2"></i>
+                        Remover
+                      </button>
                     </div>
-                  </td>
-                )}
+                  </div>
+                </td>
               </tr>
             );
           })}
@@ -315,7 +312,7 @@ function TableCustomers({ columns, data }) {
                   setPageSize(Number(e.target.value));
                 }}
               >
-                {[10, 20, 50, 100].map((pageSize) => (
+                {[10, 20, 50].map((pageSize) => (
                   <option key={pageSize} value={pageSize}>
                     Mostrar {pageSize}
                   </option>

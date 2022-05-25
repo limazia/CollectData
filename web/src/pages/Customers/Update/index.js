@@ -75,10 +75,12 @@ function EditCustomer() {
   }
 
   async function getCustomer(id) {
-    const data = await WebRepository.getCustomerById(id);
+    const { results, error } = await WebRepository.getCustomerById(id);
 
-    if (data) {
-      setCustomer(data);
+    if (error) {
+      window.location.replace("/customers");
+    } else {
+      setCustomer(results);
     }
   }
 

@@ -31,7 +31,6 @@ routes.get("/", function (request, response) {
 // Rotas de autenticação
 routes.group("/api/auth", (router) => {
   router.post("/login", AuthController.login);
-  router.post("/register", AuthController.register);
   router.post("/logout", Authentication.token, AuthController.logout);
 });
 
