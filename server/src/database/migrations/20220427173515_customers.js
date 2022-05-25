@@ -16,14 +16,14 @@ exports.up = function (knex) {
     table.string("city").notNullable();
     table.string("state").notNullable();
 
-    table.integer("pressure").defaultTo(0).notNullable();
-    table.integer("diabetic").defaultTo(0).notNullable();
-    table.integer("hemophiliac").defaultTo(0).notNullable();
-    table.integer("healing").defaultTo(0).notNullable();
-    table.integer("eplsepsis").defaultTo(0).notNullable();
-    table.integer("fainting").defaultTo(0).notNullable();
-    table.string("allergy_medication").notNullable();
-    table.string("hepatitis").notNullable();
+    table.integer("pressure").defaultTo(0);
+    table.integer("diabetic").defaultTo(0);
+    table.integer("hemophiliac").defaultTo(0);
+    table.integer("healing").defaultTo(0);
+    table.integer("eplsepsis").defaultTo(0);
+    table.integer("fainting").defaultTo(0);
+    table.string("allergy_medication");
+    table.string("hepatitis");
 
     table.timestamp("updateAt").defaultTo(knex.raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
     table.timestamp("createdAt").defaultTo(knex.raw('CURRENT_TIMESTAMP'));

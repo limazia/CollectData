@@ -11,6 +11,7 @@ function NameModal() {
   const { user } = useAuth();
 
   const [name, setName] = useState("");
+  const [surname, setSurname] = useState("");
   const [loading, setLoading] = useState(false);
 
   async function handleSubmit() {
@@ -18,12 +19,13 @@ function NameModal() {
       try {
         setLoading(true);
 
-        const { data } = await api.put(`/api/me/update/name/${user.id}`, { name });
+        const { data } = await api.put(`/api/me/update/name/${user.id}`, { name, surname });
         const { error, message } = data;
 
         if (message) {
           toast.success(message);
           setName("");
+          setSurname("");
           window.$("#nameModal").modal("hide");
         } else {
           toast.error(error);
@@ -41,6 +43,7 @@ function NameModal() {
 
   window.$("#nameModal").on("hide.bs.modal", function (event) {
     setName("");
+    setSurname("");
   });
 
   return (
@@ -74,6 +77,20 @@ function NameModal() {
                       placeholder="Nome"
                       value={name}
                       onChange={(e) => setName(e.target.value)}
+                    />
+                  </div>
+                </div>
+              </div>
+              <div className="row">
+                <div className="col-md-12">
+                  <div className="form-group mb-4">
+                    <input
+                      type="text"
+                      name="surname"
+                      className="form-control"
+                      placeholder="Sobrenome"
+                      value={surname}
+                      onChange={(e) => setSurname(e.target.value)}
                     />
                   </div>
                 </div>

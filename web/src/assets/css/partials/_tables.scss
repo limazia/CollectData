@@ -1,5 +1,5 @@
-.table-professionals,
-.table-customers {
+.table-customers,
+.table-professionals {
   width: 100%;
   border-collapse: separate;
   border-spacing: 0 8px;
@@ -11,6 +11,8 @@
     font-size: 13px;
     padding: 20px 32px;
     text-align: left;
+    font-weight: bold;
+    text-transform: uppercase;
 
     line-height: 24px;
     transition: color 0.5s;
@@ -72,5 +74,10 @@
         border-color: #1111cb;
       }
     }
+  }
+
+  &:disabled,
+  button[disabled] {
+    cursor: not-allowed;
   }
 }

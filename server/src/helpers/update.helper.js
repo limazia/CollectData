@@ -6,10 +6,11 @@ const constant = require("../app/constants");
 async function updateName(request, response, next) {
   try {
     const { id } = request.params;
-    const { name } = request.body;
+    const { name, surname } = request.body;
 
-    const user = await connection("professionals").select("*").where({ id });
+    const user = await connection("professionals").where({ id });
     let isName = "";
+    let isSurname = "";
 
     if (name) {
       if (name === user[0].name) {
@@ -21,7 +22,17 @@ async function updateName(request, response, next) {
       return response.json({ error: "Digite um nome" });
     }
 
-    await connection("professionals").update({ name: isName }).where({ id });
+    if (surname) {
+      if (surname === user[0].surname) {
+        isSurname = user[0].surname;
+      } else {
+        isSurname = surname;
+      }
+    } else {
+      return response.json({ error: "Digite um sobrenome" });
+    }
+
+    await connection("professionals").update({ name: isName, surname: isSurname }).where({ id });
 
     return response.json({ message: constant.success.NAME_SUCCESSFULLY_UPDATED });
   } catch (ex) {
@@ -34,8 +45,8 @@ async function updateEmail(request, response, next) {
     const { id } = request.params;
     const { email } = request.body;
 
-    const user = await connection("professionals").select("*").where({ id });
-    const checkEmail = email && (await connection("professionals").select("*").where({ email }));
+    const user = await connection("professionals").where({ id });
+    const checkEmail = email && (await connection("professionals").where({ email }));
     let isEmail = "";
 
     if (email) {
@@ -65,8 +76,8 @@ async function updateIdentityCard(request, response, next) {
     const { id } = request.params;
     const { identity_type, identity_card } = request.body;
 
-    const user = await connection("professionals").select("*").where({ id });
-    const checkIdentity = identity_card && (await connection("professionals").select("*").where({ identity_card }));
+    const user = await connection("professionals").where({ id });
+    const checkIdentity = identity_card && (await connection("professionals").where({ identity_card }));
     let isIdentityCard = "";
 
     if (identity_card) {
@@ -99,7 +110,7 @@ async function updateTelephone(request, response, next) {
     const { id } = request.params;
     const { telephone } = request.body;
 
-    const user = await connection("professionals").select("*").where({ id });
+    const user = await connection("professionals").where({ id });
     let isTelephone = "";
 
     if (telephone) {
@@ -125,7 +136,7 @@ async function updatePassword(request, response, next) {
     const { id } = request.params;
     const { password, newPassword, confirmPassword } = request.body;
 
-    const user = await connection("professionals").select("*").where({ id });
+    const user = await connection("professionals").where({ id });
     let isPassword = "";
 
     if (password && newPassword && confirmPassword) {

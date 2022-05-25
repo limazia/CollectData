@@ -47,6 +47,27 @@
       font-size: 0.9rem;
     }
   }
+
+  &.search {
+    height: 60px;
+    text-indent: 30px;
+    background: transparent;
+    color: #8c97ac;
+    border: 2px solid #e9ebef;
+    max-width: 100%;
+    border-radius: 10px;
+
+    &:focus {
+      background: transparent;
+      color: #8c97ac;
+      border: 2px solid #e9ebef;
+    }
+
+    &::placeholder {
+      color: #cbd0da;
+      font-size: 0.9rem;
+    }
+  }
 }
 
 .select-wrapper {

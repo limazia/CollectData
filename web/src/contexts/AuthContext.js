@@ -1,19 +1,23 @@
-import { createContext, useLayoutEffect, useState } from "react";
+import { createContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import retry from "retry";
 
 import api from "~/services/api";
-import { createToken, getToken } from "~/services/auth";
+import WebRepository from "~/services/WebRepository";
+import { createToken, getToken, removeToken } from "~/services/auth";
 
 export const AuthContext = createContext({});
 
 function AuthProvider({ children }) {
+  const navigate = useNavigate();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(false);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (getToken()) {
       userProfile();
     }
@@ -28,14 +32,14 @@ function AuthProvider({ children }) {
   });
 
   async function setUserToken(token) {
-    if (!token) {
-      toast.error("Ocorreu um problema ao salvar o token");
-    }
+    if (!token) toast.error("Ocorreu um problema ao salvar o token");
 
+    setEmail("");
+    setPassword("");
+    setLoading(false);
     createToken(token);
-    setLoading(true);
 
-    window.location.replace("/dashboard");
+    window.location.replace("/");
   }
 
   async function handleSubmit() {
@@ -45,7 +49,7 @@ function AuthProvider({ children }) {
 
         const { data } = await api.post("/api/auth/login", { email, password });
         const { token, error, message } = data;
-
+ 
         if (token) {
           setUserToken(token);
         } else {
@@ -68,12 +72,14 @@ function AuthProvider({ children }) {
 
   async function userProfile() {
     operation.attempt(async (currentAttempt) => {
-      console.log("sending request: ", currentAttempt, " attempt");
+      console.log(`sending request: ${currentAttempt} attempt`);
       try {
-        const { data } = await api.get("/api/me/account");
+        const data = await WebRepository.getProfile();
 
         if (data) {
           setUser(data);
+        } else {
+          setUser(null);
         }
       } catch (ex) {
         console.error("Não foi possivel encontrar o perfil!");
@@ -84,6 +90,13 @@ function AuthProvider({ children }) {
     });
   }
 
+  function logout() {
+    removeToken();
+    setUser(null);
+
+    window.location.replace("/login");
+  }
+
   const value = {
     handleSubmit,
     email,
@@ -92,6 +105,7 @@ function AuthProvider({ children }) {
     authenticated: !!user,
     setEmail,
     setPassword,
+    logout,
     loading,
   };
 

@@ -35,7 +35,7 @@ function Settings() {
                     <div className="input-editable">
                       <span>Nome</span>
                       <p>
-                        {user.name}
+                        {user.name} {user.surname}
                         <button className="btn btn-link" data-toggle="modal" data-target="#nameModal">Editar</button>
                       </p>
                     </div>

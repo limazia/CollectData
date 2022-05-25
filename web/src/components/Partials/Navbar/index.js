@@ -1,29 +1,24 @@
-import { useNavigate, Link } from "react-router-dom";
-
-import { logout } from "~/services/auth";
-
+import { Link } from "react-router-dom";
 import useAuth from "~/hooks/useAuth";
 
 import { ReactComponent as Logo } from "~/assets/images/logo.svg";
 import { ReactComponent as MenuHamburguer } from "~/assets/images/menu.svg";
 
 function Navbar() {
-  const navigate = useNavigate();
-  const { user } = useAuth();
+  const { user, logout } = useAuth();
 
   const href = "#";
 
   const handleLogout = () => {
     logout();
-    navigate("/");
-  };
-
+  }
+ 
   return (
     <header>
       <div className="container">
         <nav className="navbar navbar-expand-lg navbar-main navbar-light">
-          <Link className="navbar-brand" to="/dashboard">
-            <Logo className="img-fluid mr-3" />
+          <Link className="navbar-brand" to="/">
+            <Logo className="img-fluid ml-3" />
           </Link>
           <button
             className="navbar-toggler"
@@ -45,7 +40,7 @@ function Navbar() {
                   id="navbarDropdownMenuLink"
                   data-toggle="dropdown"
                 >
-                  <span className="username">{user.name}</span>
+                  <span className="username">{user.name} {user.surname}</span>
                 </Link>
                 <div className="dropdown-menu">
                   <Link className="dropdown-item" to={"/settings"}>

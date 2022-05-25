@@ -1,4 +1,3 @@
-import React from "react";
 import Lottie from "react-lottie";
 
 import TattoMachine from "~/assets/animations/tattoo-machine";

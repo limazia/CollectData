@@ -1,9 +1,19 @@
 import api from "./api";
 
 export default {
-  getProfessionals: async (page = 1, limit = 10) => {
+  getProfile: async () => {
     try {
-      const { data } = await api.get(`/api/professionals?page=${page}&limit=${limit}`);
+      const { data } = await api.get("/api/me/account");
+
+      return data;
+    } catch (ex) {
+      console.error("[GET /me/account] > it was not possible to collect data from the api");
+    }
+  },
+
+  getProfessionals: async () => {
+    try {
+      const { data } = await api.get("/api/professionals");
 
       return data;
     } catch (ex) {
@@ -11,9 +21,9 @@ export default {
     }
   },
 
-  getCustomers: async (page = 1, limit = 10) => {
+  getCustomers: async () => {
     try {
-      const { data } = await api.get(`/api/customers?page=${page}&limit=${limit}`);
+      const { data } = await api.get("/api/customers");
 
       return data;
     } catch (ex) {
@@ -27,7 +37,17 @@ export default {
 
       return data;
     } catch (ex) {
-      console.error("[GET /customer/:id] > it was not possible to collect data from the api")
+      console.error("[GET /customers/:id] > it was not possible to collect data from the api")
+    }
+  },
+
+  getProfessionalById: async (id) => {
+    try {
+      const { data } = await api.get(`/api/professionals/${id}`);
+
+      return data;
+    } catch (ex) {
+      console.error("[GET /professionals/:id] > it was not possible to collect data from the api")
     }
   },
 };

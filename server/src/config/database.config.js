@@ -3,7 +3,7 @@ const { env } = require("./../helpers/utils.helper");
  
 module.exports = {
   development: {
-    client: env("DB_CONNECTION"),
+    client: env("DB_DRIVE"),
     connection: {
       host: env("DB_HOST"),
       port: env("DB_PORT", 3306),
@@ -24,7 +24,7 @@ module.exports = {
   },
 
   production: {
-    client: env("DB_CONNECTION"),
+    client: env("DB_DRIVE"),
     connection: {
       host: env("DB_HOST"),
       port: env("DB_PORT", 3306),

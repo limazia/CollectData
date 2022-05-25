@@ -15,16 +15,12 @@ function Customers() {
         <div className="row">
           <div className="col-md-4 mt-sm-4">
             <div className="card card-gallery-tatto">
-              <div>
-                <span className="badge-remove">
-                  <i className="fas fa-trash-alt"></i>
-                </span>
-                <img
-                  className="card-img-top"
-                  src="https://i.pinimg.com/736x/08/2a/47/082a47db370200a54b7bf632879f8c13.jpg"
-                  alt
-                />
-              </div>
+              <img
+                className="card-img-top"
+                src="https://i.pinimg.com/736x/08/2a/47/082a47db370200a54b7bf632879f8c13.jpg"
+                alt
+              />
+
               <div className="card-body">
                 <h5 className="card-title">Flor simples</h5>
                 <p className="card-text text-muted">
@@ -39,16 +35,12 @@ function Customers() {
           </div>
           <div className="col-md-4 mt-sm-4">
             <div className="card card-gallery-tatto">
-              <div>
-                <span className="badge-remove">
-                  <i className="fas fa-trash-alt"></i>
-                </span>
-                <img
-                  className="card-img-top"
-                  src="https://i.pinimg.com/originals/45/bf/70/45bf70f0cfcb5ca9cb1d55fc9b4a73c5.jpg"
-                  alt
-                />
-              </div>
+              <img
+                className="card-img-top"
+                src="https://i.pinimg.com/originals/45/bf/70/45bf70f0cfcb5ca9cb1d55fc9b4a73c5.jpg"
+                alt
+              />
+
               <div className="card-body">
                 <h5 className="card-title">Flor simples</h5>
                 <p className="card-text text-muted">
@@ -63,16 +55,12 @@ function Customers() {
           </div>
           <div className="col-md-4 mt-sm-4">
             <div className="card card-gallery-tatto">
-              <div>
-                <span className="badge-remove">
-                  <i className="fas fa-trash-alt"></i>
-                </span>
-                <img
-                  className="card-img-top"
-                  src="https://i.pinimg.com/originals/f7/83/c5/f783c5f028eb5d2daa29a47aa45cb72b.jpg"
-                  alt
-                />
-              </div>
+              <img
+                className="card-img-top"
+                src="https://i.pinimg.com/originals/f7/83/c5/f783c5f028eb5d2daa29a47aa45cb72b.jpg"
+                alt
+              />
+
               <div className="card-body">
                 <h5 className="card-title">Flor simples</h5>
                 <p className="card-text text-muted">
@@ -89,16 +77,12 @@ function Customers() {
         <div className="row mt-5">
           <div className="col-md-4 mt-sm-4">
             <div className="card card-gallery-tatto">
-              <div>
-                <span className="badge-remove">
-                  <i className="fas fa-trash-alt"></i>
-                </span>
-                <img
-                  className="card-img-top"
-                  src="https://img.freepik.com/vetores-gratis/espada-com-rosas-desenho-de-tatuagem-mao-ilustracoes-desenhadas-isolado-no-fundo-branco_183342-9.jpg"
-                  alt
-                />
-              </div>
+              <img
+                className="card-img-top"
+                src="https://img.freepik.com/vetores-gratis/espada-com-rosas-desenho-de-tatuagem-mao-ilustracoes-desenhadas-isolado-no-fundo-branco_183342-9.jpg"
+                alt
+              />
+
               <div className="card-body">
                 <h5 className="card-title">Flor simples</h5>
                 <p className="card-text text-muted">
@@ -113,16 +97,12 @@ function Customers() {
           </div>
           <div className="col-md-4 mt-sm-4">
             <div className="card card-gallery-tatto">
-              <div>
-                <span className="badge-remove">
-                  <i className="fas fa-trash-alt"></i>
-                </span>
-                <img
-                  className="card-img-top"
-                  src="https://i.pinimg.com/564x/d5/b5/4f/d5b54f3422bc0fd00f9a61ff7627ac53.jpg"
-                  alt
-                />
-              </div>
+              <img
+                className="card-img-top"
+                src="https://i.pinimg.com/564x/d5/b5/4f/d5b54f3422bc0fd00f9a61ff7627ac53.jpg"
+                alt
+              />
+
               <div className="card-body">
                 <h5 className="card-title">Flor simples</h5>
                 <p className="card-text text-muted">

@@ -14,16 +14,17 @@ moment.locale("pt-br");
 class AccountController {
   async account(request, response, next) {
     try {
-      const results = await connection("professionals").select("*").where({ id: request.userId });
+      const results = await connection("professionals").where({ id: request.userId });
 
       if (results.length >= 1) {
         const {
           id,
           name,
+          surname,
           email,
+          telephone,
           identity_type,
           identity_card,
-          telephone,
           area_activity,
           primary_user,
           updateAt,
@@ -31,12 +32,13 @@ class AccountController {
         } = results[0];
 
         return response.json({
-          id,
-          name,
-          email,
+          id: id ? id : null,
+          name: name ? name : null,
+          surname: surname ? surname : null,
+          email: email ? email : null,
+          telephone: telephone ? telephone : null,
           identity_type: identity_type ? identity_type : null,
           identity_card: identity_card ? identity_card : null,
-          telephone: telephone ? telephone : null,
           area_activity: area_activity ? area_activity : null,
           primary_user: primary_user >= 1 ? true : false,
           update_at: moment(updateAt).format("LL"),

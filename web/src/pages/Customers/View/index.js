@@ -6,6 +6,8 @@ import { maskCPF, maskRG, maskCNPJ, maskPhone, maskCEP } from "~/utils/mask";
 
 import { Head, Navbar, Loading } from "~/components";
 
+import { ReactComponent as EmptyBackground } from "~/assets/images/empty4.svg";
+
 function ViewCustomer() {
   const { customerId } = useParams();
   const [customer, setCustomer] = useState([]);
@@ -24,10 +26,12 @@ function ViewCustomer() {
   }
 
   async function getCustomer(id) {
-    const data = await WebRepository.getCustomerById(id);
+    const { results, error } = await WebRepository.getCustomerById(id);
 
-    if (data) {
-      setCustomer(data);
+    if (error) {
+      window.location.replace("/customers");
+    } else {
+      setCustomer(results);
     }
   }
 
@@ -35,7 +39,7 @@ function ViewCustomer() {
     <>
       <Head title={`${customer.name} ${customer.surname}`} />
       <Navbar />
-      <div className="container">
+      <div className="container mt-5 pb-5">
         <div className="row mt-5">
           <div className="col-md-12">
             <div className="card p-3">
@@ -196,7 +200,7 @@ function ViewCustomer() {
           </div>
         </div>
         <div className="row mt-5">
-          <div className="col-md-12 mb-5">
+          <div className="col-md-12">
             <div className="card p-3">
               <div className="card-body">
                 <h4 className="card-title pb-3">Ficha médica</h4>
@@ -262,6 +266,25 @@ function ViewCustomer() {
                         </div>
                       </div>
                     </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="row mt-5">
+          <div className="col-md-12">
+            <div className="card card-professionals p-3">
+              <div className="card-body">
+                <h4 className="card-title pb-3">Contratos</h4>
+                <div className="row">
+                  <div className="col-sm-12 empty-tatto text-center">
+                    <div className="empty-tatto-image pb-3">
+                      <EmptyBackground className="img-fluid" />
+                    </div>
+                    <span className="empty-tatto-title">
+                      Nenhum contrato foi encontrado
+                    </span>
                   </div>
                 </div>
               </div>

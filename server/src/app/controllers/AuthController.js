@@ -9,7 +9,7 @@ class AuthController {
   async login(request, response, next) {
     try {
       const { email, password } = request.body;
-      const user = await connection("professionals").select("*").where({ email });
+      const user = await connection("professionals").where({ email });
 
       if (!email) {
         return response.json({ error: "Digite um email" });
@@ -45,7 +45,7 @@ class AuthController {
   async register(request, response, next) {
     try {
       const { name, email, password, confirmPassword } = request.body;
-      const user = await connection("professionals").select("*").where({ email });
+      const user = await connection("professionals").where({ email });
       const salt = bcrypt.genSaltSync(10);
       const passwordCrypt = bcrypt.hashSync(password, salt);
       const id = cryptoRandomString({ length: 15 });

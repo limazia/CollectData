@@ -1,30 +1,13 @@
-import React from "react";
 import { Form } from "@rocketseat/unform";
-import { useNavigate } from "react-router-dom";
 
 import useAuth from "~/hooks/useAuth";
-
 import { Head, Spinner } from "~/components";
 
 import { ReactComponent as Logo } from "~/assets/images/logo.svg";
 import LoginBackground from "~/assets/images/bg-login.jpg";
 
 function Login() {
-  const navigate = useNavigate();
-  const {
-    handleSubmit,
-    email,
-    password,
-    setEmail,
-    setPassword,
-    loading,
-  } = useAuth();
-
-  const goForgot = () => {
-    navigate("/forgot-password");
-    setEmail("");
-    setPassword("");
-  };
+  const { handleSubmit, email, password, setEmail, setPassword, loading } = useAuth();
 
   return (
     <>
@@ -72,23 +55,14 @@ function Login() {
                       <button
                         type="submit"
                         disabled={
-                          !email ||
-                          !password ||
-                          password.length <= 3
+                          !email || !password || password.length <= 3
                             ? true
                             : false
                         }
                         className="btn btn-login btn-block"
                       >
-                        {loading ? (
-                          <Spinner type="grow" />
-                        ) : (
-                          "Entrar"
-                        )}
+                        {loading ? <Spinner type="grow" /> : "Entrar"}
                       </button>
-                      <div className="link-forgot-password">
-                        <span onClick={goForgot}>Esqueceu a senha?</span>
-                      </div>
                     </Form>
                   </div>
                 </div>

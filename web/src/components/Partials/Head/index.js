@@ -1,21 +1,7 @@
-import React, { useEffect } from 'react';
+import Helmet from "react-helmet";
 
-function Head({ title, description }) {
-  useEffect(() => {
-    if (title) {
-      document.title = `${process.env.REACT_APP_NAME} - ${title}`;
-    } else {
-      document.title = `${process.env.REACT_APP_NAME}`;
-    }
-
-    if (description) {
-      document
-      .querySelector('meta[name="description"]')
-      .setAttribute("content", description);
-    }
-  }, [title, description]);
-
-  return <></>;
+function Head({ title }) {
+  return <Helmet title={title ? `${process.env.REACT_APP_NAME} - ${title}` : process.env.REACT_APP_NAME} />
 }
 
 export default Head;

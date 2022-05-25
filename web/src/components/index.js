@@ -11,7 +11,6 @@ export { default as RequireAuth } from "./Functionality/RequireAuth";
 // UI
 export { default as Spinner } from "./User/Spinner";
 export { default as Calendar } from "./User/Calendar";
-export { default as PasswordCheckList } from "./User/PasswordCheckList";
 
 // Modals
 export { default as NameModal } from "./User/Modals/Settings/Name";
@@ -20,11 +19,16 @@ export { default as IdentityCard } from "./User/Modals/Settings/IdentityCard";
 export { default as TelephoneModal } from "./User/Modals/Settings/Telephone";
 export { default as PasswordModal } from "./User/Modals/Settings/Password";
 export { default as DeleteCustomer } from "./User/Modals/Customers/Delete";
+export { default as DeleteProfessionals } from "./User/Modals/Professionals/Delete";
 
 // Forms
 export { default as CreateCustomer1 } from "./User/Forms/Step/CreateCustomer/FormStep1";
 export { default as CreateCustomer2 } from "./User/Forms/Step/CreateCustomer/FormStep2";
 export { default as CreateCustomer3 } from "./User/Forms/Step/CreateCustomer/FormStep3";
+
+// Tables
+export { default as TableCustomers } from "./User/Tables/Customers";
+export { default as TableProfessionals } from "./User/Tables/Professionals";
 
 // Shimmer
 export { default as LoadingHistory } from "./User/Shimmer/LoadingHistory";

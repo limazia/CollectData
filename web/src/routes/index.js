@@ -1,11 +1,9 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 
-import Private from "./ProtectedRoutes";
+import { getToken } from "~/services/auth";
 
 import Login from "~/pages/Login";
-import ForgotPassword from "~/pages/ForgotPassword";
-import ResetPassword from "~/pages/ResetPassword";
 
 import Dashboard from "~/pages/Dashboard";
 import Settings from "~/pages/Settings";
@@ -23,38 +21,48 @@ import CustomerUpdate from "~/pages/Customers/Update";
 
 import Professionals from "~/pages/Professionals";
 import ProfessionalCreate from "~/pages/Professionals/Create";
-import ProfessionalGet from "~/pages/Professionals/Get";
+import ProfessionalView from "~/pages/Professionals/View";
 import ProfessionalUpdate from "~/pages/Professionals/Update";
 
 import NotFound from "~/pages/NotFound";
 
-const RouteWrapper = () => (
-  <Routes>
-    <Route path="/" exact element={<Login />} />
-    <Route path="/forgot-password" element={<ForgotPassword />} />
-    <Route path="/new-password/:token" exact element={<ResetPassword />} />
+const RouteWrapper = () => {
+  const Private = ({ children }) => {
+    const token = getToken();
+ 
+    if (!token) {
+      return <Navigate to="/login" />;
+    }
+  
+    return children;
+  }
+  
+  return (
+    <Routes>
+      <Route exact path="/login" element={<Login />} />
 
-    <Route path="/dashboard" element={<Dashboard />} />
-    <Route path="/settings" element={<Settings />} />
-    <Route path="/schedule" element={<Schedule />} />
+      <Route exact path="/" element={<Private><Dashboard /></Private>} />
+      <Route path="/settings" element={<Private><Settings /></Private>} />
+      <Route path="/schedule" element={<Private><Schedule /></Private>} />
 
-    <Route path="/customers" element={<Customers />} />
-    <Route path="/customer/create" element={<CustomerCreate />} />
-    <Route path="/customer/:customerId" element={<CustomerView />} />
-    <Route path="/customer/edit/:customerId" element={<CustomerUpdate />} />
+      <Route path="/customers" element={<Private><Customers /></Private>} />
+      <Route path="/customer/create" element={<Private><CustomerCreate /></Private>} />
+      <Route path="/customer/:customerId" element={<Private><CustomerView /></Private>} />
+      <Route path="/customer/edit/:customerId" element={<Private><CustomerUpdate /></Private>} />
+      
+      <Route path="/professionals" element={<Private><Professionals /></Private>} />
+      <Route path="/professional/create" element={<Private><ProfessionalCreate /></Private>} />
+      <Route path="/professional/:professionalId" element={<Private><ProfessionalView /></Private>} />
+      <Route path="/professional/edit/:professionalId" element={<Private><ProfessionalUpdate /></Private>} />
 
-    <Route path="/professionals" element={<Professionals />} />
-    <Route path="/professional/create" element={<ProfessionalCreate />} />
-    <Route path="/professional/:professionalId" element={<ProfessionalGet />} />
-    <Route path="/professional/edit/:professionalId" element={<ProfessionalUpdate />} />
+      <Route path="/tattos" element={<Private><Tattos /></Private>} />
+      <Route path="/tatto/create" element={<Private><TattoCreate /></Private>} />
+      <Route path="/tatto/:tattoId" element={<Private><TattoView /></Private>} />
+      <Route path="/tatto/edit/:tattoId" element={<Private><TattoUpdate /></Private>} />
 
-    <Route path="/tattos" element={<Tattos />} />
-    <Route path="/tatto/create" element={<TattoCreate />} />
-    <Route path="/tatto/:tattoId" element={<TattoView />} />
-    <Route path="/tatto/edit/:tattoId" element={<TattoUpdate />} />
-
-    <Route path="*" element={<NotFound />} />
-  </Routes>
-);
+      <Route path="*" element={<Private><NotFound /></Private>} />
+    </Routes>
+  );
+}
 
 export default RouteWrapper;

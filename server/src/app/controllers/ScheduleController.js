@@ -19,7 +19,7 @@ class ScheduleController {
   async createSchedule(request, response, next) {
     try {
       const { name, email, password, confirmPassword } = request.body;
-      const user = await connection("users").select("*").where({ email });
+      const user = await connection("users").where({ email });
       const salt = bcrypt.genSaltSync(10);
       const passwordCrypt = bcrypt.hashSync(password, salt);
       const id = cryptoRandomString({ length: 15 });
@@ -90,9 +90,9 @@ class ScheduleController {
     try {
       const { username, email, password, newPassword, confirmNewPassword } = request.body;
 
-      const user = await connection("users").select("*").where({ id: request.userId });
-      const checkUsername = username && await connection("users").select("*").where({ username });
-      const checkEmail = email && await connection("users").select("*").where({ email });
+      const user = await connection("users").where({ id: request.userId });
+      const checkUsername = username && await connection("users").where({ username });
+      const checkEmail = email && await connection("users").where({ email });
 
       if (email) {
         if (email === user[0].email) {

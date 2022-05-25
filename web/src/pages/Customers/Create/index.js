@@ -22,7 +22,7 @@ function CreateCustomer() {
 
   return (
     <>
-      <Head title="Cadastrar cliente" />
+      <Head title="Novo cliente" />
       <Navbar />
       <div className="container">
         <div className="row mt-5">

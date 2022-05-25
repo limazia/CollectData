@@ -1,6 +1,6 @@
 // Importa as libs
-const express = require("express");
 require("express-group-routes");
+const express = require("express");
 
 // Inicia o Routes do Express
 const routes = express.Router();
@@ -11,10 +11,10 @@ const { env } = require("./helpers/utils.helper");
 // Controllers
 const AuthController = require("./app/controllers/AuthController");
 const AccountController = require("./app/controllers/AccountController");
-//const PasswordController = require("./app/controllers/PasswordController");
 const ProfessionalController = require("./app/controllers/ProfessionalController");
 const CustomerController = require("./app/controllers/CustomerController");
 const ScheduleController = require("./app/controllers/ScheduleController");
+const FakerController = require("./app/controllers/FakerController");
 
 // Middlewares
 const Authentication = require("./app/middlewares/Authentication");
@@ -34,30 +34,6 @@ routes.group("/api/auth", (router) => {
   router.post("/register", AuthController.register);
   router.post("/logout", Authentication.token, AuthController.logout);
 });
-
-// Rota de resetar senha
-/*
-routes.group("/api/password", (router) => {
-  router.get("/:token", PasswordController.userResetCheck);
-  router.post("/forgot", PasswordController.userForgotPassword);
-  router.post("/reset", PasswordController.userResetPassword);
-});
-*/
-
-/*
-  async deleteUserById(request, response) {
-    const { id } = request.params;
-    const user = await connection("users").select("*").where({ id });
-
-    if (user.length >= 1) {
-      await connection("users").where({ id }).del();
-
-      return response.json({ message: "Usuário deletado com sucesso" });
-    }
-
-    return response.json({ error: "Nenhum usuário foi encontrada com esta {ID}" });
-  }
-*/
 
 // Rota do usuario logado
 routes.group("/api/me", (router) => {
@@ -91,5 +67,10 @@ routes.group("/api/schedule", (router) => {
   router.put("/update/:id", Authentication.token, ScheduleController.updateScheduleById);
   router.delete("/delete/:id", Authentication.token, ScheduleController.deleteScheduleById);
 });
-  
+
+// Rotas de criação fake
+routes.group("/api/faker", (router) => {
+  router.get("/:scope/:amount", FakerController.createFaker);
+});
+
 module.exports = routes;
