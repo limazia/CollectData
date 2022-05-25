@@ -1,7 +1,3 @@
-import Lottie from "react-lottie";
-
-import TattoMachine from "~/assets/animations/tattoo-machine";
-
 import { ReactComponent as LogoImage } from "~/assets/images/logo.svg";
 import { ReactComponent as IconImage } from "~/assets/images/logo-icon.svg";
 
@@ -17,23 +13,8 @@ function Text() {
   return <h1>{process.env.REACT_APP_NAME || "Carregando..."}</h1>;
 }
 
-function Animation() {
-  const defaultOptions = {
-    loop: true,
-    autoplay: true,
-    animationData: TattoMachine,
-    rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice",
-    },
-  };
-
-  return (
-    <Lottie options={defaultOptions} height={200} width={200} speed={0.8} />
-  );
-}
-
 function Loading({ type = "icon" }) {
-  const allowedScopes = ["icon", "logo", "text", "animation"];
+  const allowedScopes = ["icon", "logo", "text"];
 
   return (
     <div className="container-fluid container-loading">
@@ -43,7 +24,6 @@ function Loading({ type = "icon" }) {
             {type === "icon" && <Icon />}
             {type === "logo" && <Logo />}
             {type === "text" && <Text />}
-            {type === "animation" && <Animation />}
           </>
         ) : (
           <Icon />
