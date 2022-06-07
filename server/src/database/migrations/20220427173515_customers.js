@@ -6,7 +6,7 @@ exports.up = function (knex) {
     table.string("email").notNullable();
     table.string("telephone").notNullable();
     table.string("birth_date").notNullable();
-    table.enu("identity_type", ["cpf", "rg"]).defaultTo("cpf").notNullable();
+    table.enu("identity_type", ["cpf", "rg"]).defaultTo(null);
     table.string("identity_card").notNullable();
     
     table.string("zipcode").notNullable();
@@ -24,6 +24,8 @@ exports.up = function (knex) {
     table.integer("fainting").defaultTo(0);
     table.string("allergy_medication");
     table.string("hepatitis");
+
+    table.string("created_by").notNullable();
 
     table.timestamp("updateAt").defaultTo(knex.raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
     table.timestamp("createdAt").defaultTo(knex.raw('CURRENT_TIMESTAMP'));

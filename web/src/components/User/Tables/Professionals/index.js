@@ -227,19 +227,8 @@ function TableProfessionals({ columns, data }) {
                   </div>
                 </td>
                 <td>
-                  {row.original.identity_card ? (
-                    <span
-                      data-toggle="tooltip"
-                      data-placement="top"
-                      title={row.original.identity_type?.toUpperCase()}
-                    >
-                      {row.original.identity_type === "cpf" &&
-                        maskCPF(row.original.identity_card)}
-                      {row.original.identity_type === "rg" &&
-                        maskRG(row.original.identity_card)}
-                      {row.original.identity_type === "cnpj" &&
-                        maskCNPJ(row.original.identity_card)}
-                    </span>
+                  {row.original.area_activity ? (
+                    <>{row.original.area_activity}</>
                   ) : (
                     <>&mdash;</>
                   )}

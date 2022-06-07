@@ -1,13 +1,54 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 
 import useForm from "~/hooks/useForm";
+import ibge from "~/services/ibge";
 
 import { maskCEP } from "~/utils/mask";
 
 function FormStep2() {
   const { customerAddress, setCustomerAddress, setCurrentStep } = useForm();
-  const { zipcode, address, district, complement, city, state } = customerAddress;
+  const { zipcode, address, district, complement, state } = customerAddress;
+
+  const [ufs, setUfs] = useState([]);
+  const [cities, setCities] = useState([]);
+
+  // Load UFs
+  useEffect(() => {
+    async function loadUfs() {
+      const response = await ibge.get("localidades/estados?orderBy=nome");
+
+      const ufInitials = response.data.map((uf) => {
+        return {
+          sigla: uf.sigla,
+          nome: uf.nome,
+        };
+      });
+
+      setUfs(ufInitials);
+    }
+
+    loadUfs();
+  }, []);
+
+  // Load Cities
+  useEffect(() => {
+    async function loadCities() {
+      if (state === "0") return;
+
+      const response = await ibge.get(
+        `localidades/estados/${state}/municipios`
+      );
+
+      const cityNames = response.data.map((city) => {
+        return { nome: city.nome };
+      });
+
+      setCities(cityNames);
+    }
+
+    loadCities();
+  }, [state]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -106,17 +147,21 @@ function FormStep2() {
             </div>
             <div className="row">
               <div className="col-md-7">
-                <div className="form-group mb-4">
+                <div className="form-group mb-4 select-wrapper">
                   <label htmlFor="city">*Cidade</label>
-                  <input
-                    type="text"
+                  <select
                     name="city"
                     id="city"
                     className="form-control step"
-                    placeholder="São Paulo"
-                    value={city}
                     onChange={handleChange}
-                  />
+                  >
+                    <option value="0">Selecione uma cidade</option>
+                    {cities.map((city) => (
+                      <option key={city.nome} value={city.nome}>
+                        {city.nome}
+                      </option>
+                    ))}
+                  </select>
                 </div>
               </div>
               <div className="col-md-5">
@@ -126,36 +171,14 @@ function FormStep2() {
                     name="state"
                     id="state"
                     className="form-control step"
-                    value={state}
                     onChange={handleChange}
                   >
-                    <option value="AC">Acre</option>
-                    <option value="AL">Alagoas</option>
-                    <option value="AP">Amapá</option>
-                    <option value="AM">Amazonas</option>
-                    <option value="BA">Bahia</option>
-                    <option value="CE">Ceará</option>
-                    <option value="DF">Distrito Federal</option>
-                    <option value="ES">Espírito Santo</option>
-                    <option value="GO">Goiás</option>
-                    <option value="MA">Maranhão</option>
-                    <option value="MT">Mato Grosso</option>
-                    <option value="MS">Mato Grosso do Sul</option>
-                    <option value="MG">Minas Gerais</option>
-                    <option value="PA">Pará</option>
-                    <option value="PB">Paraíba</option>
-                    <option value="PR">Paraná</option>
-                    <option value="PE">Pernambuco</option>
-                    <option value="PI">Piauí</option>
-                    <option value="RJ">Rio de Janeiro</option>
-                    <option value="RN">Rio Grande do Norte</option>
-                    <option value="RS">Rio Grande do Sul</option>
-                    <option value="RO">Rondônia</option>
-                    <option value="RR">Roraima</option>
-                    <option value="SC">Santa Catarina</option>
-                    <option value="SP">São Paulo</option>
-                    <option value="SE">Sergipe</option>
-                    <option value="TO">Tocantins</option>
+                    <option value="0">Selecione uma estado</option>
+                    {ufs?.map((uf) => (
+                      <option key={uf.nome} value={uf.sigla}>
+                        {uf.sigla}
+                      </option>
+                    ))}
                   </select>
                 </div>
               </div>

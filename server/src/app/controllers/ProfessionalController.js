@@ -58,27 +58,27 @@ class ProfessionalController {
       const id = cryptoRandomString({ length: 15 });
 
       if (!name) {
-        return response.json({ error: "Digite um nome" });
+        return response.json({ error: constant.error.input.ENTER_AN_NAME });
       }
 
       if (!surname) {
-        return response.json({ error: "Digite um sobrenome" });
+        return response.json({ error: constant.error.input.ENTER_AN_SURNAME });
       }
 
       if (!email) {
-        return response.json({ error: "Digite um email" });
+        return response.json({ error: constant.error.input.ENTER_AN_EMAIL });
       } else {
         if (user.length > 0) {
-          return response.json({ error: "Email já registrado" });
+          return response.json({ error: constant.error.form.EMAIL_ALREADY_REGISTERED });
         }
       }
 
       if (!password) {
-        return response.json({ error: "Digite uma senha" });
+        return response.json({ error: constant.error.input.ENTER_AN_PASSWORD });
       }
 
       if (password != confirmPassword) {
-        return response.json({ error: "As senhas não coincidem" });
+        return response.json({ error: constant.error.form.PASSWORDS_DONT_MATCH });
       }
 
       await connection("professionals").insert({
@@ -89,7 +89,7 @@ class ProfessionalController {
         password: passwordCrypt,
       });
 
-      return response.json({ message: "Conta criada com sucesso" });
+      return response.json({ message: constant.success.SUCCESSFULLY_REGISTERED });
     } catch (ex) {
       next(ex);
     }
@@ -130,7 +130,7 @@ class ProfessionalController {
         });
       }
       
-      response.json({ error: "Nenhum profissional foi encontrado com este ID" });
+      response.json({ error: constant.error.NO_USER_FOUND_WITH_THIS_ID });
     } catch (ex) {
       next(ex);
     }
@@ -152,10 +152,10 @@ class ProfessionalController {
       if (professional.length >= 1) {
         await connection("professionals").delete().where({ id });
 
-        return response.json({ message: "Profissional deletado com sucesso" });
+        return response.json({ message: constant.success.RECORD_DELETED });
       }
 
-      return response.json({ error: "Nenhum profissional foi encontrado com este ID" });
+      return response.json({ error: constant.error.NO_USER_FOUND_WITH_THIS_ID });
     } catch (ex) {
       next(ex);
     }

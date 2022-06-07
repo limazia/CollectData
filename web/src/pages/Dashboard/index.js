@@ -55,18 +55,6 @@ function Dashboard() {
                   <i className="fas fa-angle-right"></i>
                 </button>
                 <button
-                  className="btn btn-option btn-block mt-3"
-                  onClick={goTattos}
-                >
-                  <div className="d-flex align-items-center">
-                    <div className="icon-box">
-                      <i className="far fa-kiwi-bird"></i>
-                    </div>
-                    Galeria de tatuagens
-                  </div>
-                  <i className="fas fa-angle-right"></i>
-                </button>
-                <button
                   className="btn btn-option btn-block mt-4"
                   onClick={goCustomers}
                 >

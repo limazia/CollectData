@@ -8,6 +8,7 @@ const {
   updateTelephone,
   updatePassword,
 } = require("../../helpers/update.helper");
+const constant = require("../constants");
 
 moment.locale("pt-br");
 
@@ -45,7 +46,7 @@ class AccountController {
           created_at: moment(createdAt).format("LL"),
         });
       } else {
-        response.json({ error: "Nenhum usuário foi encontrado com este id." });
+        response.json({ error: constant.error.NO_USER_FOUND_WITH_THIS_ID });
       }
     } catch (ex) {
       next(ex);
@@ -75,10 +76,10 @@ class AccountController {
             updatePassword(request, response, next);
             break;
           default:
-            response.json({ error: "Type not identified in allowed scope" });
+            response.json({ error: constant.error.TYPE_NOT_IDENTIFIED_IN_ALLOWED_SCOPE });
         }
       } else {
-        return response.json({ error: "Type not identified in allowed scope" });
+        return response.json({ error: constant.error.TYPE_NOT_IDENTIFIED_IN_ALLOWED_SCOPE });
       }
     } catch (ex) {
       next(ex);

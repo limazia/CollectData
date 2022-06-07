@@ -5,15 +5,15 @@ exports.seed = function (knex) {
       name: "Acacio",
       surname: "de Lima",
       email: "limadeacacio@gmail.com",
-      password: "$2b$10$qciRG8CMZlnJHdqfc9NDcu.wuadRxuQBU9.neNPO09tD0vnUJ7Rii",
+      password: "$2b$10$/HR6ESB8JitGblj4N5AgqeY6jxqifHfxYn//IUxYVLhgEeNCYugsm", // 1234
       primary_user: 1,
     },
     {
       id: "241c516770a4eda",
       name: "Leonardo",
-      name: "Ximenes",
+      surname: "Ximenes",
       email: "leo@gmail.com",
-      password: "2b$10$u7kMUW7zf2W.bMhwSel2BuOLXA85Dkq5oBvDYI0fvk/GvWuWqN0Ve",
+      password: "$2b$10$/HR6ESB8JitGblj4N5AgqeY6jxqifHfxYn//IUxYVLhgEeNCYugsm", // 1234
     },
   ]);
 };

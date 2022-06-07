@@ -1,15 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Form } from "@rocketseat/unform";
 
 import useForm from "~/hooks/useForm";
+import useAuth from "~/hooks/useAuth";
 
 import { Spinner } from "~/components";
 
 function FormStep3() {
+  const { user } = useAuth();
   const {
     handleSubmit,
     medicalRecord,
     setMedicalRecord,
+    setProfessionalDetails,
     setCurrentStep,
     loading,
   } = useForm();
@@ -24,6 +27,13 @@ function FormStep3() {
     allergy_medication,
     hepatitis,
   } = medicalRecord;
+
+  useEffect(() => {
+    
+  setProfessionalDetails({
+    professional_id: user.id,
+  })
+  }, [])
 
   const handleOption = (e) => {
     const { name, value } = e.target;

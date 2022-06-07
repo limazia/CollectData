@@ -120,7 +120,7 @@ async function updateTelephone(request, response, next) {
         isTelephone = telephone;
       }
     } else {
-      return response.json({ error: "Digite um telefone" });
+      return response.json({ error: constant.error.input.ENTER_AN_TELEPHONE });
     }
 
     await connection("professionals").update({ telephone: isTelephone }).where({ id });
@@ -146,16 +146,57 @@ async function updatePassword(request, response, next) {
           const passwordCrypt = bcrypt.hashSync(newPassword, salt);
           isPassword = passwordCrypt;
         } else {
-          return response.json({ error: "Senha não coincidem" });
+          return response.json({ error: constant.error.form.PASSWORDS_DONT_MATCH });
         }
       } else {
-        return response.json({ error: "Senha invalida" });
+        return response.json({ error: constant.error.form.INVALID_PASSWORD });
       }
     }
 
     await connection("professionals").update({ password: isPassword }).where({ id });
 
     return response.json({ message: constant.success.PASSWORD_SUCCESSFULLY_UPDATED });
+  } catch (ex) {
+    next(ex);
+  }
+}
+
+async function updateCustomerData(request, response, next) {
+  try {
+    const { id } = request.params;
+    const { customerData } = request.body;
+
+    await connection("customers").update(customerData).where({ id });
+
+    return response.json({ message: constant.success.ACCOUNT_SUCCESSFULLY_UPDATED });
+  } catch (ex) {
+    next(ex);
+  }
+}
+
+async function updateCustomerAddress(request, response, next) {
+  try {
+    const { id } = request.params;
+    const { customerAddress } = request.body;
+
+    await connection("customers").update(customerAddress).where({ id });
+
+    return response.json({ message: constant.success.ACCOUNT_SUCCESSFULLY_UPDATED });
+  } catch (ex) {
+    next(ex);
+  }
+}
+
+async function updateMedicalRecord(request, response, next) {
+  try {
+    const { id } = request.params;
+    const { medicalRecord } = request.body;
+
+    console.log(medicalRecord)
+
+    await connection("customers").update(medicalRecord).where({ id });
+
+    return response.json({ message: constant.success.ACCOUNT_SUCCESSFULLY_UPDATED });
   } catch (ex) {
     next(ex);
   }
@@ -167,4 +208,7 @@ module.exports = {
   updateIdentityCard,
   updateTelephone,
   updatePassword,
+  updateCustomerData,
+  updateCustomerAddress,
+  updateMedicalRecord,
 };

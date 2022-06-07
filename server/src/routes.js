@@ -1,9 +1,14 @@
 // Importa as libs
 require("express-group-routes");
 const express = require("express");
+const multer = require("multer");
+
+// Configuração do Multer
+const { MulterConfig } = require("./config");
 
 // Inicia o Routes do Express
 const routes = express.Router();
+const upload = multer(MulterConfig);
 
 // Helpers
 const { env } = require("./helpers/utils.helper");
@@ -13,6 +18,7 @@ const AuthController = require("./app/controllers/AuthController");
 const AccountController = require("./app/controllers/AccountController");
 const ProfessionalController = require("./app/controllers/ProfessionalController");
 const CustomerController = require("./app/controllers/CustomerController");
+const ContractController = require("./app/controllers/ContractController");
 const ScheduleController = require("./app/controllers/ScheduleController");
 const FakerController = require("./app/controllers/FakerController");
 
@@ -54,8 +60,15 @@ routes.group("/api/customers", (router) => {
   router.get("/", Authentication.token, CustomerController.listAllCustomers);
   router.get("/:id", Authentication.token, CustomerController.findCustomerById);
   router.post("/create", Authentication.token, CustomerController.createCustomer);
-  router.put("/update/:id", Authentication.token, CustomerController.updateCustomerById);
+  router.put("/:scope/:id", Authentication.token, CustomerController.updateCustomerById);
   router.delete("/delete/:id", Authentication.token, CustomerController.deleteCustomerById);
+});
+
+// Rota dos contrato
+routes.group("/api/contracts", (router) => {
+  router.get("/:id", Authentication.token, ContractController.listAllContract);
+  router.post("/create", Authentication.token, upload.single("image"), ContractController.createContract);
+  router.delete("/delete/:id", Authentication.token, ContractController.deleteContractById);
 });
 
 // Rota dos agendamentos

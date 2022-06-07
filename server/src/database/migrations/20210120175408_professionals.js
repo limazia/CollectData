@@ -7,7 +7,7 @@ exports.up = function (knex) {
     table.string("password").notNullable();
     table.string("telephone").notNullable();
     table.string("birth_date").notNullable();
-    table.enu("identity_type", ["cpf", "rg"]).defaultTo("cpf").notNullable();
+    table.enu("identity_type", ["cpf", "rg"]).defaultTo(null);
     table.string("identity_card").notNullable();
     table.string("area_activity").notNullable();
     table.integer("primary_user").defaultTo(0).notNullable();

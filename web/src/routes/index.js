@@ -1,7 +1,8 @@
 import React from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
+import { parseCookies } from "nookies";
 
-import { getToken } from "~/services/auth";
+import useAuth from "~/hooks/useAuth";
 
 import Login from "~/pages/Login";
 
@@ -9,10 +10,8 @@ import Dashboard from "~/pages/Dashboard";
 import Settings from "~/pages/Settings";
 import Schedule from "~/pages/Schedule";
 
-import Tattos from "~/pages/Tattos";
-import TattoCreate from "~/pages/Tattos/Create";
-import TattoView from "~/pages/Tattos/View";
-import TattoUpdate from "~/pages/Tattos/Update";
+import ContractCreate from "~/pages/Contracts/Create";
+import ContractView from "~/pages/Contracts/View";
 
 import Customers from "~/pages/Customers";
 import CustomerCreate from "~/pages/Customers/Create";
@@ -28,7 +27,7 @@ import NotFound from "~/pages/NotFound";
 
 const RouteWrapper = () => {
   const Private = ({ children }) => {
-    const token = getToken();
+    const { "collect.token": token } = parseCookies();
  
     if (!token) {
       return <Navigate to="/login" />;
@@ -55,10 +54,8 @@ const RouteWrapper = () => {
       <Route path="/professional/:professionalId" element={<Private><ProfessionalView /></Private>} />
       <Route path="/professional/edit/:professionalId" element={<Private><ProfessionalUpdate /></Private>} />
 
-      <Route path="/tattos" element={<Private><Tattos /></Private>} />
-      <Route path="/tatto/create" element={<Private><TattoCreate /></Private>} />
-      <Route path="/tatto/:tattoId" element={<Private><TattoView /></Private>} />
-      <Route path="/tatto/edit/:tattoId" element={<Private><TattoUpdate /></Private>} />
+      <Route path="/contract/create/:customerId" element={<Private><ContractCreate /></Private>} />
+      <Route path="/contract/:contractId" element={<Private><ContractView /></Private>} />
 
       <Route path="*" element={<Private><NotFound /></Private>} />
     </Routes>

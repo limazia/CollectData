@@ -21,8 +21,8 @@ function FormProvider({ children }) {
     address: "",
     district: "",
     complement: "",
-    city: "",
-    state: "",
+    city: "0",
+    state: "0",
   });
   const [medicalRecord, setMedicalRecord] = useState({
     pressure: "",
@@ -34,9 +34,12 @@ function FormProvider({ children }) {
     allergy_medication: "",
     hepatitis: "",
   });
+  const [professionalDetails, setProfessionalDetails] = useState({
+    professional_id: "",
+  });
   const [loading, setLoading] = useState(false);
 
-  async function handleSubmit() {
+  async function handleSubmit(idProfessional) {
     try {
       setLoading(true);
 
@@ -44,6 +47,7 @@ function FormProvider({ children }) {
         customerData,
         customerAddress,
         medicalRecord,
+        professionalDetails
       });
       const { error, message } = data;
 
@@ -55,6 +59,7 @@ function FormProvider({ children }) {
         toast.error(error);
       }
     } catch (ex) {
+      console.log(ex)
       toast.error("Houve um problema com o servidor!");
       setLoading(false);
     } finally {
@@ -72,6 +77,7 @@ function FormProvider({ children }) {
     setCustomerData,
     setCustomerAddress,
     setMedicalRecord,
+    setProfessionalDetails,
     loading
   };
 

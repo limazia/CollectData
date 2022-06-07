@@ -8,6 +8,7 @@ import { Spinner } from "~/components";
 function DeleteCostumer({ data }) {
   const id = data[0];
   const name = data[1];
+  const files_count = data[2];
   const [loading, setLoading] = useState(false);
 
   async function handleSubmit() {
@@ -67,13 +68,15 @@ function DeleteCostumer({ data }) {
                   </p>
                   <p>Você não pode desfazer esta ação.</p>
                 </div>
-                <div className="alert alert-danger alert-border" role="alert">
-                  <b>Aviso</b>
-                  <p className="mt-2 mb-0">
-                    Ao excluir o cliente, você excluirá <b>8 arquivos</b>{" "}
-                    relacionados ao cliente
-                  </p>
-                </div>
+                {files_count > 0 && (
+                  <div className="alert alert-danger alert-border" role="alert">
+                    <b>Aviso</b>
+                    <p className="mt-2 mb-0">
+                      Você excluirá <b>{files_count} {files_count === 1 ? "contrato": "contratos"}</b> relacionados
+                      ao cliente
+                    </p>
+                  </div>
+                )}
               </div>
             </div>
             <div className="row">

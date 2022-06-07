@@ -2,7 +2,7 @@ const multer = require("multer");
 const path = require("path");
 const cryptoRandomString = require("crypto-random-string");
 
-const imageFolder = path.resolve(__dirname, "..", "..", "images/");
+const imageFolder = path.resolve(__dirname, "../../", "uploads/gallery/");
 
 const storage = multer.diskStorage({
   directory: imageFolder,
@@ -27,7 +27,7 @@ const upload = multer({
   fileFilter: function (request, file, cb) {
     if (!file.originalname.match(/\.(jpg|JPG|jpeg|JPEG|png|PNG)$/)) {
       request.fileValidationError = "Only image files are allowed!";
-      return cb(new Error("Only image files are allowed!"), false);
+      return cb(new Error("[Multer] Only image files are allowed!"), false);
     }
     cb(null, true);
   },

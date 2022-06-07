@@ -31,7 +31,7 @@ function GlobalFilter({
   const navigate = useNavigate();
 
   const goCreate = () => navigate("/customer/create");
-  
+
   const refreshCustomers = debounce((e) => {
     const event = new CustomEvent("refresh-customers");
     window.dispatchEvent(event);
@@ -221,28 +221,21 @@ function TableCustomers({ columns, data }) {
                         to={`/customer/${row.original.id}`}
                         className="link-profile"
                       >
-                        {row.original.name}
+                        {row.original.name} {row.original.surname}
                       </Link>
                       <div className="text-muted"> {row.original.email}</div>
                     </div>
                   </div>
                 </td>
                 <td>
-                  {row.original.identity_card ? (
-                    <span
-                      data-toggle="tooltip"
-                      data-placement="top"
-                      title={row.original.identity_type?.toUpperCase()}
+                  {row.original.created_by?.professional_name ? (
+                    <Link
+                      to={`/professional/${row.original.created_by?.professional_id}`}
                     >
-                      {row.original.identity_type === "cpf" &&
-                        maskCPF(row.original.identity_card)}
-                      {row.original.identity_type === "rg" &&
-                        maskRG(row.original.identity_card)}
-                      {row.original.identity_type === "cnpj" &&
-                        maskCNPJ(row.original.identity_card)}
-                    </span>
+                      {row.original.created_by?.professional_name}
+                    </Link>
                   ) : (
-                    <>&mdash;</>
+                    <span>Desconhecido</span>
                   )}
                 </td>
                 <td>{row.original.createdAt}</td>
@@ -261,10 +254,10 @@ function TableCustomers({ columns, data }) {
                     >
                       <Link
                         className="dropdown-item"
-                        to={`/tatto/create/${row.original.id}`}
+                        to={`/contract/create/${row.original.id}`}
                       >
-                        <i className="fas fa-kiwi-bird mr-2 "></i>
-                        Adicionar tatuagem
+                        <i className="fas fa-file-contract mr-2"></i>
+                        Adicionar contrato
                       </Link>
                       <Link
                         className="dropdown-item"
@@ -280,6 +273,7 @@ function TableCustomers({ columns, data }) {
                         value={[
                           row.original.id,
                           `${row.original.name} ${row.original.surname}`,
+                          row.original.files_count
                         ]}
                         onClick={(e) => handleSelect(e, "value")}
                       >

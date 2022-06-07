@@ -17,19 +17,20 @@
     "@faker-js/faker": "^6.3.1",
     "bcrypt": "^5.0.1",
     "body-parser": "^1.20.0",
-    "celebrate": "^15.0.1",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "crypto-random-string": "^3.2.0",
     "dotenv": "^16.0.0",
+    "easy-template-x": "^2.1.0",
     "express": "^4.17.3",
     "express-group-routes": "^1.1.0",
+    "image-size": "^1.0.1",
     "jsonwebtoken": "^8.5.1",
     "knex": "^1.0.5",
     "moment": "^2.29.3",
+    "morgan": "^1.10.0",
     "multer": "^1.4.4",
-    "mysql": "^2.18.1",
-    "socket.io": "^4.4.1"
+    "mysql": "^2.18.1"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"

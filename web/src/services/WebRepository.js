@@ -50,4 +50,14 @@ export default {
       console.error("[GET /professionals/:id] > it was not possible to collect data from the api")
     }
   },
+
+  getContractsById: async (id) => {
+    try {
+      const { data } = await api.get(`/api/contracts/${id}`);
+
+      return data;
+    } catch (ex) {
+      console.error("[GET /contracts/:id] > it was not possible to collect data from the api")
+    }
+  },
 };

@@ -1,37 +1,22 @@
 import React, { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
-import { scroller } from "react-scroll";
+import { useParams } from "react-router-dom";
 
 import WebRepository from "~/services/WebRepository";
 import { maskCPF, maskRG, maskCNPJ, maskPhone, maskCEP } from "~/utils/mask";
 
 import { Head, Navbar, Loading } from "~/components";
 
-import { ReactComponent as EmptyBackground } from "~/assets/images/empty4.svg";
-
-function CustomerView() {
+function ContractView() {
   const { customerId } = useParams();
   const [customer, setCustomer] = useState([]);
-  const [contracts, setContracts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const urlHash = window.location.href.split("#")[1];
 
   useEffect(() => {
     getCustomer(customerId);
-    getContracts(customerId);
 
     setTimeout(() => {
       setIsLoading(false);
     }, 2000);
-  }, [isLoading]);
-
-  useEffect(() => {
-    if (urlHash) {
-      scroller.scrollTo(urlHash, {
-        delay: 2100,
-        smooth: "easeInOutQuart",
-      });
-    }
   }, [isLoading]);
 
   if (isLoading) {
@@ -39,43 +24,20 @@ function CustomerView() {
   }
 
   async function getCustomer(id) {
-    const { results, error } = await WebRepository.getCustomerById(id);
+    const data = await WebRepository.getCustomerById(id);
 
-    if (error) {
-      window.location.replace("/customers");
-    } else {
-      setCustomer(results);
+    if (data) {
+      setCustomer(data);
     }
-  }
-
-  async function getContracts(id) {
-    const { results } = await WebRepository.getContractsById(id);
-
-    setContracts(results);
   }
 
   return (
     <>
       <Head title={`${customer.name} ${customer.surname}`} />
       <Navbar />
-      <div className="container mt-5 pb-5">
+      <div className="container">
         <div className="row mt-5">
           <div className="col-md-12">
-            <nav aria-label="breadcrumb">
-              <ol className="breadcrumb breadcrumb-navigation">
-                <li className="breadcrumb-item">
-                  <Link to="/">Inicio</Link>
-                </li>
-                <li className="breadcrumb-item">
-                  <Link to="/customers">Clientes</Link>
-                </li>
-                <li className="breadcrumb-item active" aria-current="page">
-                  {customer.name} {customer.surname}
-                </li>
-              </ol>
-            </nav>
-          </div>
-          <div className="col-md-12 mt-3">
             <div className="card p-3">
               <div className="card-body">
                 <h4 className="card-title pb-3">Dados do cliente</h4>
@@ -234,7 +196,7 @@ function CustomerView() {
           </div>
         </div>
         <div className="row mt-5">
-          <div className="col-md-12">
+          <div className="col-md-12 mb-5">
             <div className="card p-3">
               <div className="card-body">
                 <h4 className="card-title pb-3">Ficha médica</h4>
@@ -306,61 +268,9 @@ function CustomerView() {
             </div>
           </div>
         </div>
-        <div className="row mt-5" id="contracts">
-          <div className="col-md-12">
-            <div className="card card-professionals p-3">
-              <div className="card-body">
-                <h4 className="card-title pb-3">Contratos</h4>
-                <div className="row">
-                  {contracts.length > 0 ? (
-                    <>
-                      {contracts.map((row) => (
-                        <div className="col-md-4 mt-sm-4">
-                          <div className="card card-gallery-tatto">
-                            <img
-                              className="card-img-top"
-                              src={row.thumbnail}
-                              alt
-                            />
-                            <div className="card-body">
-                              <h5 className="card-title">{row.title}</h5>
-                              <p className="card-text text-muted">
-                                <i className="far fa-chair-office mr-2"></i>
-                                <Link to="#">
-                                  {row.created_by.professional_name}
-                                </Link>
-                              </p>
-                              <a
-                                href={row.file}
-                                className="btn btn-primary btn-block"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                              >
-                                Baixar Contrato
-                              </a>
-                            </div>
-                          </div>
-                        </div>
-                      ))}
-                    </>
-                  ) : (
-                    <div className="col-sm-12 empty-tatto text-center">
-                      <div className="empty-tatto-image pb-3">
-                        <EmptyBackground className="img-fluid" />
-                      </div>
-                      <span className="empty-tatto-title">
-                        Nenhum contrato foi encontrado
-                      </span>
-                    </div>
-                  )}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </>
   );
 }
 
-export default CustomerView;
+export default ContractView;

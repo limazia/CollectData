@@ -1,11 +1,11 @@
 import { createContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { parseCookies, setCookie, destroyCookie } from "nookies";
 import retry from "retry";
 
 import api from "~/services/api";
 import WebRepository from "~/services/WebRepository";
-import { createToken, getToken, removeToken } from "~/services/auth";
 
 export const AuthContext = createContext({});
 
@@ -18,10 +18,12 @@ function AuthProvider({ children }) {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    if (getToken()) {
+    const { "collect.token": token } = parseCookies();
+
+    if (token) {
       userProfile();
     }
-  }, [getToken]);
+  }, []);
 
   const operation = retry.operation({
     retries: 5,
@@ -31,27 +33,33 @@ function AuthProvider({ children }) {
     randomize: true,
   });
 
-  async function setUserToken(token) {
-    if (!token) toast.error("Ocorreu um problema ao salvar o token");
-
-    setEmail("");
-    setPassword("");
-    setLoading(false);
-    createToken(token);
-
-    window.location.replace("/");
-  }
-
   async function handleSubmit() {
     if (email && password) {
-      try {
-        setLoading(true);
+      setLoading(true);
 
+      try {
         const { data } = await api.post("/api/auth/login", { email, password });
-        const { token, error, message } = data;
- 
+        const { token, refreshToken, error, message } = data;
+
         if (token) {
-          setUserToken(token);
+          setEmail("");
+          setPassword("");
+          setLoading(false);
+
+          setCookie(undefined, "collect.token", token, {
+            maxAge: 60 * 60 * 24 * 7, // 7 days
+            path: "/",
+          });
+
+          setCookie(undefined, "collect.refreshToken", refreshToken, {
+            maxAge: 60 * 60 * 24 * 14, // 14 days
+            path: "/",
+          });
+ 
+          api.defaults.headers["Authorization"] = `Bearer ${token}`;
+          
+          //navigate("/");
+          window.location.replace("/");
         } else {
           if (message) {
             toast.success(message);
@@ -70,17 +78,13 @@ function AuthProvider({ children }) {
     }
   }
 
-  async function userProfile() {
+  const userProfile = async () => {
     operation.attempt(async (currentAttempt) => {
       console.log(`sending request: ${currentAttempt} attempt`);
       try {
         const data = await WebRepository.getProfile();
 
-        if (data) {
-          setUser(data);
-        } else {
-          setUser(null);
-        }
+        setUser(data);
       } catch (ex) {
         console.error("Não foi possivel encontrar o perfil!");
         if (operation.retry(ex)) {
@@ -88,13 +92,14 @@ function AuthProvider({ children }) {
         }
       }
     });
-  }
+  };
 
   function logout() {
-    removeToken();
+    destroyCookie(undefined, "collect.token");
     setUser(null);
 
-    window.location.replace("/login");
+    navigate("/login");
+    //window.location.replace("/login");
   }
 
   const value = {

@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+
 import useAuth from "~/hooks/useAuth";
 
 import { ReactComponent as Logo } from "~/assets/images/logo.svg";
@@ -6,7 +7,7 @@ import { ReactComponent as MenuHamburguer } from "~/assets/images/menu.svg";
 
 function Navbar() {
   const { user, logout } = useAuth();
-
+ 
   const href = "#";
 
   const handleLogout = () => {
@@ -40,7 +41,7 @@ function Navbar() {
                   id="navbarDropdownMenuLink"
                   data-toggle="dropdown"
                 >
-                  <span className="username">{user.name} {user.surname}</span>
+                  <span className="username">{user?.name} {user?.surname}</span>
                 </Link>
                 <div className="dropdown-menu">
                   <Link className="dropdown-item" to={"/settings"}>

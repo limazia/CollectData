@@ -4,7 +4,7 @@ import useForm from "~/hooks/useForm";
 
 import { Head, Navbar, CreateCustomer1, CreateCustomer2, CreateCustomer3 } from "~/components";
 
-function CreateCustomer() {
+function CustomerCreate() {
   const { currentStep } = useForm();
 
   function renderForm(currentStep) {
@@ -54,4 +54,4 @@ function CreateCustomer() {
   );
 }
 
-export default CreateCustomer;
+export default CustomerCreate;

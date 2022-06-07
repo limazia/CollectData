@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 import {
   Head,
   Navbar,
+  Loading,
   NameModal,
   EmailModal,
   TelephoneModal,
@@ -15,6 +16,21 @@ import { maskCPF, maskRG, maskCNPJ } from "~/utils/mask";
 
 function Settings() {
   const { user } = useAuth();
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    if (user !== null) {
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 2000);
+    } else {
+      setIsLoading(true);
+    }
+  }, [user, isLoading]);
+
+  if (isLoading) {
+    return <Loading />;
+  }
 
   return (
     <>

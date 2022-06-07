@@ -3,7 +3,7 @@ import { toast } from "react-toastify";
 
 import useForm from "~/hooks/useForm";
 
-import { maskCPF, maskRG, maskPhone } from "~/utils/mask";
+import { maskCPF, maskRG, maskPhone, maskDate } from "~/utils/mask";
 
 function FormStep1() {
   const { customerData, setCustomerData, setCurrentStep } = useForm();
@@ -37,6 +37,11 @@ function FormStep1() {
           identity_card: "",
         }));
       }
+    } else if (name === "birth_date") {
+      setCustomerData((prevState) => ({
+        ...prevState,
+        birth_date: maskDate(value),
+      }));
     } else if (name === "identity_card") {
       if (identity_type === "cpf") {
         setCustomerData((prevState) => ({
@@ -136,11 +141,12 @@ function FormStep1() {
                 <div className="form-group mb-4">
                   <label htmlFor="birth_date">*Data de aniversário</label>
                   <input
-                    type="date"
+                    type="text"
                     name="birth_date"
                     id="birth_date"
                     className="form-control step"
                     placeholder="00/00/0000"
+                    maxLength={10}
                     value={birth_date}
                     onChange={handleChange}
                   />

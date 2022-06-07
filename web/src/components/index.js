@@ -11,6 +11,7 @@ export { default as RequireAuth } from "./Functionality/RequireAuth";
 // UI
 export { default as Spinner } from "./User/Spinner";
 export { default as Calendar } from "./User/Calendar";
+export { default as Dropzone } from "./User/Dropzone";
 
 // Modals
 export { default as NameModal } from "./User/Modals/Settings/Name";

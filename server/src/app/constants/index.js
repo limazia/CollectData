@@ -4,10 +4,32 @@ module.exports = {
     NO_SESSION_FOUND: "Nenhuma sessão encontrada",
     NO_TOKEN_PROVIDED: "No token provided",
     INVALID_TOKEN: "Invalid token...",
+    UNAUTHORIZED_ACCESS: "Unauthorized access",
     API_KEY_MISSING: "API key missing",
     INVALID_API_KEY: "Invalid API key",
+    ERROR_UNKNOWN: "Unknown error",
+    NO_USER_FOUND_WITH_THIS_ID: "Nenhum usuário foi encontrado com este id",
+    TYPE_NOT_IDENTIFIED_IN_ALLOWED_SCOPE: "Tipo não identificado no escopo permitido",
+    form: {
+      THE_EMAIL_YOU_ENTERED_IS_NOT_LINKED_TO_AN_ACCOUNT: "O email que você inseriu não está vinculado a uma conta",
+      INVALID_EMAIL_PASSWORD: "Email e/ou senha invalidos",
+      INVALID_PASSWORD: "Senha invalida",
+      EMAIL_ALREADY_REGISTERED: "Email já registrado",
+      DOCUMENT_ALREADY_REGISTERED: "Documento já registrado",
+      PASSWORDS_DONT_MATCH: "As senhas não coincidem",
+    },
+    input: {
+      ENTER_AN_NAME: "Digite um nome",
+      ENTER_AN_SURNAME: "Digite um sobrenome",
+      ENTER_AN_EMAIL: "Digite um email",
+      ENTER_AN_PASSWORD: "Digite uma senha",
+      ENTER_AN_TELEPHONE: "Digite um telefone",
+      ENTER_AN_DOCUMENT: "Digite um documento",
+    }
   },
   success: {
+    SUCCESSFULLY_REGISTERED: "Cadastro realizado com sucesso",
+    RECORD_DELETED: "Registro excluido com sucesso",
     ACCOUNT_SUCCESSFULLY_UPDATED: "Conta atualizada com sucesso",
     NAME_SUCCESSFULLY_UPDATED: "Nome atualizado com sucesso",
     EMAIL_SUCCESSFULLY_UPDATED: "Email atualizado com sucesso",
@@ -15,5 +37,4 @@ module.exports = {
     TELEPHONE_SUCCESSFULLY_UPDATED: "Telefone atualizado com sucesso",
     PASSWORD_SUCCESSFULLY_UPDATED: "Senha atualizada com sucesso",
   },
-  warning: {},
 };

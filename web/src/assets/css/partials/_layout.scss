@@ -56,6 +56,45 @@
   }
 }
 
+.breadcrumb-navigation {
+  border-radius: 6px;
+  background: #fff;
+  background-clip: border-box;
+  border: 2px solid rgba(0, 0, 0, 0.125);
+}
+
+.dropzone {
+  height: 500px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline: 0;
+
+  img {
+    width: 100%;
+    height: calc(100% - 60px);
+    object-fit: cover;
+    border-radius: 10px;
+    margin-top: 1px;
+    border: 2px solid #1111cb;
+    cursor: pointer;
+  }
+
+  p {
+    width: 100%;
+    height: calc(100% - 60px);
+    border-radius: 10px;
+    border: 2px dashed #1111cb;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #333;
+    cursor: pointer;
+  }
+}
+
 .error-400,
 .error-401,
 .error-403,

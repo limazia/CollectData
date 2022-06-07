@@ -1,5 +1,4 @@
 const { createUser } = require("../../helpers/faker.helper");
-const bcrypt = require("bcrypt");
 
 class FakerController {
   async createFaker(request, response, next) {
@@ -16,10 +15,10 @@ class FakerController {
             createUser(request, response, next, "customers");
             break;
           default:
-            response.json({ error: "Type not identified in allowed scope" });
+            response.json({ error: constants.error.TYPE_NOT_IDENTIFIED_IN_ALLOWED_SCOPE });
         }
       } else {
-        return response.json({ error: "Type not identified in allowed scope" });
+        return response.json({ error: constants.error.TYPE_NOT_IDENTIFIED_IN_ALLOWED_SCOPE });
       }
     } catch (ex) {
       next(ex);

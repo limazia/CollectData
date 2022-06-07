@@ -21,29 +21,6 @@
   }
 }
 
-.btn-send-recovery,
-.btn-send-recovery:focus,
-.btn-send-recovery:active,
-.btn-send-recovery:active:focus:not(:disabled):not(.disabled) {
-  color: #fff;
-  background: #1111cb;
-  border-color: #1111cb;
-  height: 60px;
-  border-radius: 10px;
-  transition: 0.5s ease;
-
-  &:hover {
-    color: #fff;
-    background: #3935b5;
-    border-color: #3935b5;
-  }
-
-  &:disabled,
-  button[disabled] {
-    cursor: not-allowed;
-  }
-}
-
 .btn-back {
   z-index: 1;
   overflow: hidden;

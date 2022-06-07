@@ -45,8 +45,8 @@ function Professionals() {
       accessor: "name",
     },
     {
-      Header: "Documento",
-      accessor: "identity_card",
+      Header: "Área de atuação",
+      accessor: "area_activity",
     },
     {
       Header: "Data de cadastro",

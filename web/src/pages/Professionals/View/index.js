@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 import WebRepository from "~/services/WebRepository";
 import { maskCPF, maskRG, maskCNPJ, maskPhone } from "~/utils/mask";
@@ -8,7 +8,7 @@ import { Head, Navbar, Loading } from "~/components";
 
 import { ReactComponent as EmptyBackground } from "~/assets/images/empty4.svg";
 
-function ViewProfessional() {
+function ProfessionalView() {
   const { professionalId } = useParams();
   const [professional, setProfessional] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -42,6 +42,21 @@ function ViewProfessional() {
       <div className="container mt-5 pb-5">
         <div className="row mt-5">
           <div className="col-md-12">
+            <nav aria-label="breadcrumb">
+              <ol className="breadcrumb breadcrumb-navigation">
+                <li className="breadcrumb-item">
+                  <Link to="/">Inicio</Link>
+                </li>
+                <li className="breadcrumb-item">
+                  <Link to="/professionals">Profissionais</Link>
+                </li>
+                <li className="breadcrumb-item active" aria-current="page">
+                  {professional.name} {professional.surname}
+                </li>
+              </ol>
+            </nav>
+          </div>
+          <div className="col-md-12 mt-3">
             <div className="card p-3">
               <div className="card-body">
                 <h4 className="card-title pb-3">Dados do professional</h4>
@@ -51,14 +66,24 @@ function ViewProfessional() {
                       <div className="col-md-4">
                         <div className="form-group mb-4">
                           <label>Nome</label>
-                          <p>{professional.name ? professional.name : <>&mdash;</>}</p>
+                          <p>
+                            {professional.name ? (
+                              professional.name
+                            ) : (
+                              <>&mdash;</>
+                            )}
+                          </p>
                         </div>
                       </div>
                       <div className="col-md-4">
                         <div className="form-group mb-4">
                           <label>Sobrenome</label>
                           <p>
-                            {professional.surname ? professional.surname : <>&mdash;</>}
+                            {professional.surname ? (
+                              professional.surname
+                            ) : (
+                              <>&mdash;</>
+                            )}
                           </p>
                         </div>
                       </div>
@@ -66,7 +91,11 @@ function ViewProfessional() {
                         <div className="form-group mb-4">
                           <label>Email</label>
                           <p>
-                            {professional.email ? professional.email : <>&mdash;</>}
+                            {professional.email ? (
+                              professional.email
+                            ) : (
+                              <>&mdash;</>
+                            )}
                           </p>
                         </div>
                       </div>
@@ -100,7 +129,7 @@ function ViewProfessional() {
                         <div className="form-group mb-4">
                           <label>Documento</label>
                           <p>
-                            {professional.identity_type?.toUpperCase()} {"  "}(
+                            {professional.identity_type?.toUpperCase()} (
                             {professional.identity_card ? (
                               <>
                                 {professional.identity_type === "cpf" &&
@@ -114,6 +143,20 @@ function ViewProfessional() {
                               <>&mdash;</>
                             )}
                             )
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="row">
+                      <div className="col-md-4">
+                        <div className="form-group mb-4">
+                          <label>Área de atuação</label>
+                          <p>
+                            {professional.area_activity ? (
+                              <>{professional.area_activity}</>
+                            ) : (
+                              <>&mdash;</>
+                            )}
                           </p>
                         </div>
                       </div>
@@ -148,4 +191,4 @@ function ViewProfessional() {
   );
 }
 
-export default ViewProfessional;
+export default ProfessionalView;

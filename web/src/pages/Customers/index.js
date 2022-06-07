@@ -29,8 +29,8 @@ function Customers() {
     return <Loading />;
   }
 
-  async function getCustomers(page = 1, limite = 10) {
-    const { results } = await WebRepository.getCustomers(page, limite);
+  async function getCustomers() {
+    const { results } = await WebRepository.getCustomers();
 
     if (results) {
       setCustomers(results);
@@ -45,8 +45,8 @@ function Customers() {
       accessor: "name",
     },
     {
-      Header: "Documento",
-      accessor: "identity_card",
+      Header: "Criado por",
+      accessor: "professional_name",
     },
     {
       Header: "Data de cadastro",
