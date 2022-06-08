@@ -20,9 +20,16 @@ DB_PASSWORD=
 Instale as dependências e devDependencies e inicie o servidor.
 
 ```sh
+.env
+APP_ENV=development
+```
+
+```sh
 cd collect_data
 cd server
 npm i
+npm run knex:migrate
+npm run knex:seed
 npm run dev
 ```
 
@@ -31,6 +38,14 @@ Para ambientes de produção...
 ```sh
 .env
 APP_ENV=production
+```
+
+```sh
+cd collect_data
+cd server
+npm i
+npm run knex:migrate
+npm start
 ```
 
 Em seguida, instale as dependências e devDependencies e inicie o cliente.
