@@ -49,15 +49,6 @@ npm run knex:migrate
 npm start
 ```
 
-**ou** após configurar o banco de dados, execute os arquivos `.bat` na seguinte sequência
-
-```sh
-_install.bat
-_migration.bat
-_seed.bat (apenas para embiente de desenvolvimento)
-_start.bat
-```
-
 ## License
 
 MIT

@@ -34,13 +34,6 @@ npm i
 npm start
 ```
 
-**ou** execute os arquivos `.bat` na seguinte sequência
-
-```sh
-_install.bat
-_start.bat
-```
-
 ## License
 
 MIT
