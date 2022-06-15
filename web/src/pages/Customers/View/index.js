@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
-import { scroller } from "react-scroll";
 
 import WebRepository from "~/services/WebRepository";
 import { maskCPF, maskRG, maskCNPJ, maskPhone, maskCEP } from "~/utils/mask";
@@ -14,7 +13,6 @@ function CustomerView() {
   const [customer, setCustomer] = useState([]);
   const [contracts, setContracts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const urlHash = window.location.href.split("#")[1];
 
   useEffect(() => {
     getCustomer(customerId);
@@ -23,15 +21,6 @@ function CustomerView() {
     setTimeout(() => {
       setIsLoading(false);
     }, 2000);
-  }, [isLoading]);
-
-  useEffect(() => {
-    if (urlHash) {
-      scroller.scrollTo(urlHash, {
-        delay: 2100,
-        smooth: "easeInOutQuart",
-      });
-    }
   }, [isLoading]);
 
   if (isLoading) {
@@ -70,7 +59,7 @@ function CustomerView() {
                   <Link to="/customers">Clientes</Link>
                 </li>
                 <li className="breadcrumb-item active" aria-current="page">
-                  {customer.name} {customer.surname}
+                <Link to={`/customer/${customerId}`}>{customer.name} {customer.surname}</Link>
                 </li>
               </ol>
             </nav>

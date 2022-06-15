@@ -72,7 +72,7 @@ function DeleteCostumer({ data }) {
                   <div className="alert alert-danger alert-border" role="alert">
                     <b>Aviso</b>
                     <p className="mt-2 mb-0">
-                      Você excluirá <b>{files_count} {files_count === 1 ? "contrato": "contratos"}</b> relacionados
+                      Você excluirá <b>{files_count} {files_count == 1 ? "contrato": "contratos"}</b> relacionado
                       ao cliente
                     </p>
                   </div>

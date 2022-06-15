@@ -234,43 +234,45 @@ function TableProfessionals({ columns, data }) {
                   )}
                 </td>
                 <td>{row.original.createdAt}</td>
-                {user.primary_user && (
-                  <td>
-                    <div className="dropdown">
-                      <i
-                        className="far fa-ellipsis-v mr-3"
-                        id="dropdownMenuButton"
-                        data-toggle="dropdown"
-                        aria-haspopup="true"
-                        aria-expanded="false"
-                      ></i>
-                      <div
-                        className="dropdown-menu"
-                        aria-labelledby="dropdownMenuButton"
+
+                <td>
+                  <div className="dropdown">
+                    <i
+                      className="far fa-ellipsis-v mr-3"
+                      id="dropdownMenuButton"
+                      data-toggle="dropdown"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                    ></i>
+                    <div
+                      className="dropdown-menu"
+                      aria-labelledby="dropdownMenuButton"
+                    >
+                      <Link
+                        className="dropdown-item"
+                        to={`/professional/edit/${row.original.id}`}
                       >
-                        <Link
+                        <i className="fas fa-pencil-alt mr-2"></i>
+                        Editar
+                      </Link>
+                      {user.id !== row.original.id && row.original.primary_user && (
+                        <button
                           className="dropdown-item"
-                          to={`/professional/edit/${row.original.id}`}
+                          data-toggle="modal"
+                          data-target="#deleteProfessionals"
+                          value={[
+                            row.original.id,
+                            `${row.original.name} ${row.original.surname}`,
+                          ]}
+                          onClick={(e) => handleSelect(e, "value")}
                         >
-                          <i className="fas fa-pencil-alt mr-2"></i>
-                          Editar
-                        </Link>
-                        {user.id !== row.original.id && user.primary_user && (
-                          <button
-                            className="dropdown-item"
-                            data-toggle="modal"
-                            data-target="#deleteProfessionals"
-                            value={[row.original.id, `${row.original.name} ${row.original.surname}`]}
-                            onClick={(e) => handleSelect(e, "value")}
-                          >
-                            <i className="fas fa-trash-alt mr-2"></i>
-                            Remover
-                          </button>
-                        )}
-                      </div>
+                          <i className="fas fa-trash-alt mr-2"></i>
+                          Remover
+                        </button>
+                      )}
                     </div>
-                  </td>
-                )}
+                  </div>
+                </td>
               </tr>
             );
           })}

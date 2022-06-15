@@ -13,6 +13,11 @@ exports.up = function (knex) {
       .references("id")
       .inTable("customers")
       .onDelete("CASCADE");
+    table.string("professional_id")
+      .notNullable()
+      .references("id")
+      .inTable("professionals")
+      .onDelete("CASCADE");
  
     table.timestamp("updateAt").defaultTo(knex.raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
     table.timestamp("createdAt").defaultTo(knex.raw('CURRENT_TIMESTAMP'));

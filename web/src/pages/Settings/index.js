@@ -52,7 +52,13 @@ function Settings() {
                       <span>Nome</span>
                       <p>
                         {user.name} {user.surname}
-                        <button className="btn btn-link" data-toggle="modal" data-target="#nameModal">Editar</button>
+                        <button
+                          className="btn btn-link"
+                          data-toggle="modal"
+                          data-target="#nameModal"
+                        >
+                          Editar
+                        </button>
                       </p>
                     </div>
                   </div>
@@ -63,7 +69,13 @@ function Settings() {
                       <span>Email</span>
                       <p>
                         {user.email}
-                        <button className="btn btn-link" data-toggle="modal" data-target="#emailModal">Editar</button>
+                        <button
+                          className="btn btn-link"
+                          data-toggle="modal"
+                          data-target="#emailModal"
+                        >
+                          Editar
+                        </button>
                       </p>
                     </div>
                   </div>
@@ -72,9 +84,21 @@ function Settings() {
                   <div className="col-md-12">
                     <div className="input-editable">
                       <span>Documento</span>
-                      {user.identity_type === "cpf" && <p>{maskCPF(user.identity_card)}</p>}
-                      {user.identity_type === "rg" && <p>{maskRG(user.identity_card)}</p>}
-                      {user.identity_type === "cnpj" && <p>{maskCNPJ(user.identity_card)}</p>}
+                      {user.identity_card ? (
+                        <>
+                          {user.identity_type === "cpf" && (
+                            <p>{maskCPF(user.identity_card)}</p>
+                          )}
+                          {user.identity_type === "rg" && (
+                            <p>{maskRG(user.identity_card)}</p>
+                          )}
+                          {user.identity_type === "cnpj" && (
+                            <p>{maskCNPJ(user.identity_card)}</p>
+                          )}
+                        </>
+                      ) : (
+                        <p  className="mt-1">Nenhum documento registrado</p>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -83,8 +107,16 @@ function Settings() {
                     <div className="input-editable">
                       <span>Telefone</span>
                       <p>
-                        {user.telephone ? user.telephone : "Nenhum telefone registrado"}
-                        <button className="btn btn-link" data-toggle="modal" data-target="#telephoneModal">Editar</button>
+                        {user.telephone
+                          ? user.telephone
+                          : "Nenhum telefone registrado"}
+                        <button
+                          className="btn btn-link"
+                          data-toggle="modal"
+                          data-target="#telephoneModal"
+                        >
+                          Editar
+                        </button>
                       </p>
                     </div>
                   </div>
@@ -95,7 +127,13 @@ function Settings() {
                       <span>Senha</span>
                       <p>
                         ***********
-                        <button className="btn btn-link" data-toggle="modal" data-target="#passwordModal">Alterar</button>
+                        <button
+                          className="btn btn-link"
+                          data-toggle="modal"
+                          data-target="#passwordModal"
+                        >
+                          Alterar
+                        </button>
                       </p>
                     </div>
                   </div>

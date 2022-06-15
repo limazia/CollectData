@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { Form } from "@rocketseat/unform";
 import { toast } from "react-toastify";
 
@@ -110,8 +110,23 @@ function ProfessionalUpdate() {
     <>
       <Head title={`Editando ${professional.name} ${professional.surname}`} />
       <Navbar />
-      <div className="container">
-        <div className="row mt-5">
+      <div className="container mt-5 pb-5">
+        <div className="row">
+          <div className="col-md-12">
+            <nav aria-label="breadcrumb">
+              <ol className="breadcrumb breadcrumb-navigation">
+                <li className="breadcrumb-item">
+                  <Link to="/">Inicio</Link>
+                </li>
+                <li className="breadcrumb-item">
+                  <Link to="/professionals">Profissionais</Link>
+                </li>
+                <li className="breadcrumb-item active" aria-current="page">
+                <Link to={`/professional/${professionalId}`}>{professionalData.name} {professionalData.surname}</Link>
+                </li>
+              </ol>
+            </nav>
+          </div>
           <div className="col-md-12">
             <div className="card card-step">
               <div className="card-body">
@@ -121,7 +136,7 @@ function ProfessionalUpdate() {
                       <div className="row">
                         <div className="col-md-6">
                           <div className="form-group mb-4">
-                            <label htmlFor="name" className="text-muted">
+                            <label htmlFor="name">
                               *Nome
                             </label>
                             <input
@@ -137,7 +152,7 @@ function ProfessionalUpdate() {
                         </div>
                         <div className="col-md-6">
                           <div className="form-group mb-4">
-                            <label htmlFor="surname" className="text-muted">
+                            <label htmlFor="surname">
                               *Sobrenome
                             </label>
                             <input
@@ -155,7 +170,7 @@ function ProfessionalUpdate() {
                       <div className="row">
                         <div className="col-md-5">
                           <div className="form-group mb-4">
-                            <label htmlFor="email" className="text-muted">
+                            <label htmlFor="email">
                               *Email
                             </label>
                             <input
@@ -171,7 +186,7 @@ function ProfessionalUpdate() {
                         </div>
                         <div className="col-md-4">
                           <div className="form-group mb-4">
-                            <label htmlFor="telephone" className="text-muted">
+                            <label htmlFor="telephone">
                               *Telefone
                             </label>
                             <input
@@ -187,7 +202,7 @@ function ProfessionalUpdate() {
                         </div>
                         <div className="col-md-3">
                           <div className="form-group mb-4">
-                            <label htmlFor="area_activity" className="text-muted">
+                            <label htmlFor="area_activity">
                               Área de atuação
                             </label>
                             <input
@@ -223,7 +238,7 @@ function ProfessionalUpdate() {
                           <div className="form-group mb-4">
                             <label
                               htmlFor="identity_card"
-                              className="text-muted"
+                             
                             >
                               *Documento
                             </label>

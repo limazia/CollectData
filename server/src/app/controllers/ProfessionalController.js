@@ -50,7 +50,19 @@ class ProfessionalController {
 
   async createProfessional(request, response, next) {
     try {
-      const { name, surname, email, password, confirmPassword } = request.body;
+      const { professionalData } = request.body;
+      const {
+        name,
+        surname,
+        email,
+        telephone,
+        birth_date,
+        identity_type,
+        identity_card,
+        area_activity,
+        password,
+        confirmPassword,
+      } = professionalData;
 
       const user = await connection("professionals").where({ email });
       const salt = bcrypt.genSaltSync(10);
@@ -87,6 +99,11 @@ class ProfessionalController {
         surname,
         email,
         password: passwordCrypt,
+        telephone,
+        birth_date,
+        identity_type,
+        identity_card,
+        area_activity,
       });
 
       return response.json({ message: constant.success.SUCCESSFULLY_REGISTERED });

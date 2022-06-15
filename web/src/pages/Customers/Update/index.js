@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Link, useParams } from "react-router-dom";
 import { Form } from "@rocketseat/unform";
 import { toast } from "react-toastify";
 
@@ -295,6 +295,21 @@ function CustomerUpdate() {
       <div className="container">
         <div className="row mt-5">
           <div className="col-md-12">
+            <nav aria-label="breadcrumb">
+              <ol className="breadcrumb breadcrumb-navigation">
+                <li className="breadcrumb-item">
+                  <Link to="/">Inicio</Link>
+                </li>
+                <li className="breadcrumb-item">
+                  <Link to="/customers">Clientes</Link>
+                </li>
+                <li className="breadcrumb-item active" aria-current="page">
+                <Link to={`/customer/${customerId}`}>{customer.name} {customer.surname}</Link>
+                </li>
+              </ol>
+            </nav>
+          </div>
+          <div className="col-md-12">
             <div className="card card-step">
               <div className="card-body">
                 <Form onSubmit={handleSubmitData}>
@@ -303,7 +318,7 @@ function CustomerUpdate() {
                       <div className="row">
                         <div className="col-md-6">
                           <div className="form-group mb-4">
-                            <label htmlFor="name" className="text-muted">
+                            <label htmlFor="name">
                               *Nome
                             </label>
                             <input
@@ -319,7 +334,7 @@ function CustomerUpdate() {
                         </div>
                         <div className="col-md-6">
                           <div className="form-group mb-4">
-                            <label htmlFor="surname" className="text-muted">
+                            <label htmlFor="surname">
                               *Sobrenome
                             </label>
                             <input
@@ -328,7 +343,7 @@ function CustomerUpdate() {
                               id="surname"
                               className="form-control step"
                               placeholder="Doe"
-                              value={customer.surname}
+                              value={customerData.surname}
                               onChange={handleData}
                             />
                           </div>
@@ -337,7 +352,7 @@ function CustomerUpdate() {
                       <div className="row">
                         <div className="col-md-8">
                           <div className="form-group mb-4">
-                            <label htmlFor="email" className="text-muted">
+                            <label htmlFor="email">
                               *Email
                             </label>
                             <input
@@ -353,7 +368,7 @@ function CustomerUpdate() {
                         </div>
                         <div className="col-md-4">
                           <div className="form-group mb-4">
-                            <label htmlFor="telephone" className="text-muted">
+                            <label htmlFor="telephone">
                               *Telefone
                             </label>
                             <input
@@ -387,10 +402,7 @@ function CustomerUpdate() {
                         </div>
                         <div className="col-md-5">
                           <div className="form-group mb-4">
-                            <label
-                              htmlFor="identity_card"
-                              className="text-muted"
-                            >
+                            <label htmlFor="identity_card">
                               *Documento
                             </label>
                             <input
@@ -460,7 +472,7 @@ function CustomerUpdate() {
                       <div className="row">
                         <div className="col-md-3">
                           <div className="form-group mb-4">
-                            <label htmlFor="zipcode" className="text-muted">
+                            <label htmlFor="zipcode">
                               *CEP
                             </label>
                             <input
@@ -477,7 +489,7 @@ function CustomerUpdate() {
                         </div>
                         <div className="col-md-9">
                           <div className="form-group mb-4">
-                            <label htmlFor="address" className="text-muted">
+                            <label htmlFor="address">
                               *Endereço
                             </label>
                             <input
@@ -495,7 +507,7 @@ function CustomerUpdate() {
                       <div className="row">
                         <div className="col-md-8">
                           <div className="form-group mb-4">
-                            <label htmlFor="district" className="text-muted">
+                            <label htmlFor="district">
                               *Bairro
                             </label>
                             <input

@@ -2,7 +2,9 @@ import React from "react";
 
 function Calendar() {
   return (
-    <div>{"calendar"}</div>
+    <div className="card">
+      <div className="card-body text-center">{"{calendar}"}</div>
+    </div>
   );
 }
 

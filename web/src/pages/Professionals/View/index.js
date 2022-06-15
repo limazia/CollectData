@@ -51,7 +51,7 @@ function ProfessionalView() {
                   <Link to="/professionals">Profissionais</Link>
                 </li>
                 <li className="breadcrumb-item active" aria-current="page">
-                  {professional.name} {professional.surname}
+                <Link to={`/professional/${professionalId}`}>{professional.name} {professional.surname}</Link>
                 </li>
               </ol>
             </nav>
