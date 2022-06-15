@@ -2,7 +2,7 @@
 O sistema Collect Data é um aplicativo para estúdios de tatuagem com agendamento, histórico de saúde do cliente e contrato do serviço.
  
 ## Instalação
-Para mais informações sobre como configurar, instalar e iniciar acesse a pasta do servidor ou cliente
+Para mais informações sobre como configurar, instalar e iniciar acesse a pasta do **servidor (server)** ou **cliente (web)**
 
 ## Tecnologias
 
