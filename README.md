@@ -11,7 +11,7 @@ O aplicativo Collect Data será desenvolvido em:
 - Node.js (Express, Knex.js)
 - Java 
 - MySQL
-- ReactJS (Bootstrap 4, Styled Components e Font Awesome)
+- React (Bootstrap 4, Styled Components e Font Awesome 5)
 
 ## Autores
 
