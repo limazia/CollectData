@@ -9,7 +9,6 @@ Para mais informações sobre como configurar, instalar e iniciar acesse a pasta
 O aplicativo Collect Data será desenvolvido em:
 
 - Node.js (Express, Knex.js)
-- Java 
 - MySQL
 - React (Bootstrap 4, Styled Components e Font Awesome 5)
 
